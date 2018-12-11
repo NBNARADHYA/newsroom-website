@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>About Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial scale=1">
+  <link rel="stylesheet" href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+   * {
+     box-sizing: border-box;
+     font-family: sans-serif;
+   }
+   body {
+     margin: 0;
+   }
+   .header {
+     background-color: #ffffff;
+     color: black;
+     text-align: center;
+     position: sticky;
+   }
+   #google_translate_element {
+     float: left;
+   }
+   #google_translate_element a {
+     display: none;
+   }
+   .goog-logo-link {
+   display:none !important;
+   }
+
+   .goog-te-gadget{
+   color: transparent !important;
+   }
+   .nav_bar {
+     background-color: #339933;
+     overflow: hidden;
+   }
+   .nav_bar a {
+     float: left;
+     display: block;
+     color: white;
+     padding: 14px 20px;
+     text-align: center;
+     text-decoration: none;
+   }
+   .nav_bar a.align_right {
+     float: right;
+   }
+   .nav_bar a:hover, .nav_bar a:visited {
+     background-color: #595959;
+     color: white;
+   }
+   .main_body {
+     display: flex;
+     flex-wrap: wrap;
+   }
+   .main_body::after {
+     content: "";
+     clear: both;
+     display: table;
+   }
+   .footer {
+     border-top: 5px solid black;
+     background-color: white;
+   }
+   </style>
+ </head>
+ <body>
+   <div class="header">
+     <h1>NEWSROOM</h1>
+   </div>
+   <div class="nav_bar">
+     <a href="main.html"><i class="fa fa-home"></i> Home</a>
+     <a href="https://www.iitism.ac.in/">IIT(ISM) Dhanbad</a>
+     <a href="#">Recent Posts <span class="badge">5</span></a>
+     <div id="google_translate_element" class="google_translate_element"></div>
+
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+    }
+    </script>
+
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+     <a href="#" class="align_right">About Me</a>
+   </div>
+   <div class="main_body">
+     <h2>About Me:</h2>
+     <p>
+       I am <b>Nikhil BN</b>. I am currently pursuing <b>Bachelor of Technology</b> in Electrical
+       Engineering from <b>Indian Institute of Technology(ISM) Dhanbad</b>. I am well
+       versed in programming languages like <b>C++</b>, <b>C</b> and <b>Python</b> and web development
+       languages like <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>. My academic fields of interests
+       are Computer Science, Math and Physics. I love playing Tennis too!
+       <br><br>
+       <b>GitHub: </b>
+       <a href="https://github.com/NBNARADHYA">https://github.com/NBNARADHYA</a>
+       <br><br>
+       <b>Email: </b>
+       nikhilbn.18je0539@ee.iitism.ac.in
+       <br><br>
+       <b>Contact Number: </b>
+       7254972818
+     </p>
+   </div>
+   <div class="footer"><br>
+     <div id="clockbox"></div>
+     <script type="text/javascript" src="/home/nikhil/newsroom/time.js"></script>
+   </div>
+ </body>
+ </html>

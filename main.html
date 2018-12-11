@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Newsroom</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial scale=1">
+  <link rel="stylesheet" href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+   * {
+     box-sizing: border-box;
+     font-family: sans-serif;
+   }
+   body {
+     margin: 0;
+   }
+   .header {
+     background-color: #ffffff;
+     color: black;
+     text-align: center;
+     position: sticky;
+   }
+   #google_translate_element {
+     float: left;
+   }
+   #google_translate_element a {
+     display: none;
+   }
+   .goog-logo-link {
+   display:none !important;
+   }
+
+   .goog-te-gadget{
+   color: transparent !important;
+   }
+   .nav_bar {
+     background-color: #339933;
+     overflow: hidden;
+   }
+   .nav_bar a {
+     float: left;
+     display: block;
+     color: white;
+     padding: 14px 20px;
+     text-align: center;
+     text-decoration: none;
+   }
+   .nav_bar a.align_right {
+     float: right;
+   }
+   .nav_bar a:hover, .nav_bar a:active {
+     background-color: #595959;
+     color: white;
+   }
+   .main_body {
+     display: flex;
+     flex-wrap: wrap;
+   }
+   .main_body::after {
+     content: "";
+     clear: both;
+     display: table;
+   }
+   .top, .bottom {
+     flex: 100%;
+     padding: 20px;
+     background-color: white;
+   }
+   .bottom {
+     flex: 100%;
+     padding: 0 20px 20px;
+     background-color: white;
+   }
+   input[type=text], input[type=Email]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+  .top a {
+    background-color: #339933;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+  }
+  .top a:hover {
+    background-color: #595959;
+    color: white;
+    padding: 12px 20px;
+  }
+  .bottom a {
+    background-color: #339933;
+    padding: 14px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+  }
+  .bottom a:hover {
+    background-color: #595959;
+    color: white;
+  }
+  .footer {
+    border-top: 5px solid black;
+    text-align: center;
+    background-color: white;
+  }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>NEWSROOM</h1>
+    <p>Subscribe and get all required info posted on one page.</p>
+  </div>
+  <div class="nav_bar">
+    <a href="main.html"><i class="fa fa-home"></i> Home</a>
+    <a href="https://www.iitism.ac.in/">IIT(ISM) Dhanbad</a>
+    <a href="#">Recent Posts <span class="badge">5</span></a>
+    <div id="google_translate_element" class="google_translate_element"></div>
+
+   <script type="text/javascript">
+   function googleTranslateElementInit() {
+     new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+   }
+   </script>
+
+   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <a href="about_me.html" class="align_right">About Me</a>
+  </div>
+  <div class="main_body">
+    <div class="top">
+      <h3>Subscribe for all the pages in one go</h3><br>
+      <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name"><br>
+        <label for="email">Email I'D:</label><br>
+        <input type="Email" id="email"><br>
+      </form>
+      <br>
+      <a href="#">Subscribe</a>
+      <br><br>
+      <h1>OR</h1>
+    </div>
+    <div class="bottom">
+      <a href="#">Subscribe for specific pages</a>
+    </div>
+    <div class="null"></div>
+    <div class="footer">
+      <div id="clockbox"></div>
+      <script type="text/javascript" src="/home/nikhil/newsroom/time.js"></script>
+    </div>
+  </body>
+  </html>
