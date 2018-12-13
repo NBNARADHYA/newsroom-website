@@ -35,3 +35,7 @@ function cookieCheck() {
   }
   window.location.href="main.html";
 }
+function doalert() {
+  var user=getCookie("username");
+  alert(user);
+}
