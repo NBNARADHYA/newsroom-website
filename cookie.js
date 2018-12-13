@@ -29,7 +29,7 @@ function checkCookie() {
 }
 
 function cookieCheck() {
-  var user=document.getElementById("name").innerHTML;
+  var user=document.forms["myForm"]["fname"].value;
   if (user != "" && user != null) {
     setCookie("username", user, 30);
   }

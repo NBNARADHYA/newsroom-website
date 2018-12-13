@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
+  <script type="text/javascript" src="cookie.js"></script>
   <title>Newsroom</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial scale=1">
@@ -76,19 +77,19 @@
      padding: 0 20px 20px;
      background-color: white;
    }
-   input[type=text], input[type=Email]{
+   input[type="text"], input[type="Email"]{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
 }
-  .top button {
+  input[type="submit"] {
     background-color: #339933;
     color: white;
     padding: 12px 20px;
     text-decoration: none;
   }
-  .top button:hover {
+  input[type="submit"]:hover {
     background-color: #595959;
     color: white;
     padding: 12px 20px;
@@ -134,15 +135,13 @@
   <div class="main_body">
     <div class="top">
       <h3>Subscribe for all the pages in one go</h3><br>
-      <form>
+      <form name="myForm" onsubmit="cookieCheck()">
         <label for="name">Name:</label><br>
-        <input type="text" id="name"><br>
+        <input type="text" id="name" name="fname"><br>
         <label for="email">Email I'D:</label><br>
-        <input type="Email" id="email"><br>
+        <input type="Email" id="email"><br><br>
+        <input type="submit" value="Subscribe">
       </form>
-      <br>
-      <script type="text/javascript" src="cookie.js"></script>
-      <button type="submit" onclick="cookieCheck()">Subscribe</button>
       <br><br>
       <h1>OR</h1>
     </div>
