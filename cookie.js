@@ -24,7 +24,7 @@ function getCookie(cname) {
 function checkCookie() {
   var user=getCookie("username");
   if (user != "") {
-    window.location.href="/home/nikhil/newsroom/main.html";
+    window.location.href="main.html";
   }
 }
 
@@ -33,5 +33,5 @@ function cookieCheck() {
   if (user != "" && user != null) {
     setCookie("username", user, 30);
   }
-  window.location.href="/home/nikhil/newsroom/main.html";
+  window.location.href="main.html";
 }
