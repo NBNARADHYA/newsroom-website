@@ -37,5 +37,5 @@ function cookieCheck() {
 }
 function doalert() {
   var user=getCookie("username");
-  alert(user);
+  alert("Welcome Again " + user);
 }
