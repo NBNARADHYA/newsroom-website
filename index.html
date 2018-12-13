@@ -82,13 +82,13 @@
   margin: 8px 0;
   box-sizing: border-box;
 }
-  .top a {
+  .top button {
     background-color: #339933;
     color: white;
     padding: 12px 20px;
     text-decoration: none;
   }
-  .top a:hover {
+  .top button:hover {
     background-color: #595959;
     color: white;
     padding: 12px 20px;
@@ -111,7 +111,7 @@
   }
   </style>
 </head>
-<body>
+<body onload="checkCookie()">
   <div class="header">
     <h1>NEWSROOM</h1>
     <p>Subscribe and get all required info posted on one page.</p>
@@ -141,7 +141,8 @@
         <input type="Email" id="email"><br>
       </form>
       <br>
-      <a href="#">Subscribe</a>
+      <script type="text/javascript" src="/home/nikhil/newsroom/cookie.js"></script>
+      <button type="submit" onclick="cookieCheck()">Subscribe</button>
       <br><br>
       <h1>OR</h1>
     </div>
