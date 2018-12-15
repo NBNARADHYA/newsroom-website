@@ -1,10 +1,92 @@
 <!DOCTYPE html>
+<html lang="en-US">
 <head>
   <script type="text/javascript" src="cookie.js"></script>
-  <title>NEWSROOM</title>
-</head>
-<body onload="doalert()">
-  <h2> Hello! Here comes the facebook post feed! </h2>
-  <h2> Site under construction </h2>
-</body>
-</html>
+  <script type="text/javascript" src="time.js"></script>
+  <script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+  }
+  </script>
+
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <title>Newsroom</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial scale=1">
+  <link rel="stylesheet" href=
+  "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+   * {
+     box-sizing: border-box;
+     font-family: sans-serif;
+   }
+   body {
+     margin: 0;
+   }
+   .header {
+     background-color: #ffffff;
+     color: black;
+     text-align: center;
+   }
+   #google_translate_element {
+     float: left;
+   }
+   #google_translate_element a {
+     display: none;
+   }
+   .goog-logo-link {
+   display:none !important;
+   }
+
+   .goog-te-gadget{
+   color: transparent !important;
+   }
+   .nav_bar {
+     background-color: #339933;
+     overflow: hidden;
+     position: sticky;
+   }
+   .nav_bar .badge {
+     padding: 2px 5px;
+     background-color: black;
+     border-radius: 100%;
+    }
+   .nav_bar a {
+     float: left;
+     display: block;
+     color: white;
+     padding: 14px 20px;
+     text-align: center;
+     text-decoration: none;
+   }
+   .nav_bar a.align_right {
+     float: right;
+   }
+   .nav_bar a:hover, .nav_bar a:active {
+     background-color: #595959;
+     color: white;
+   }
+   .footer {
+     border-top: 5px solid black;
+     text-align: center;
+     background-color: white;
+   }
+   </style>
+ </head>
+ <body>
+   <div class="header">
+     <h1>NEWSROOM</h1>
+     <p>Subscribe and get all required info posted on one page.</p>
+   </div>
+   <div class="nav_bar">
+     <a href="main.html"><i class="fa fa-home"></i> Home</a>
+     <a href="https://www.iitism.ac.in/">IIT(ISM) Dhanbad</a>
+     <a href="#">Recent Posts<span class="badge">5</span></a>
+     <div id="google_translate_element" class="google_translate_element"></div>
+     <a href="about_me.html" class="align_right">About Me</a>
+   </div>
+   <div class="footer"><br>
+     <div id="clockbox"></div>
+   </div>
+ </body>
+ </html>
