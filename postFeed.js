@@ -1,5 +1,5 @@
 FB.api(
-  '/100011723838606',
+  '/728219747578813',
   'GET',
   {"fields":"id,name,feed{created_time,attachments,message,story}"},
   function(response) {
