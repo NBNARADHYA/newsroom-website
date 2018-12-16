@@ -5,14 +5,6 @@
       xfbml            : true,
       version          : 'v3.2'
     });
-    FB.api(
-      '/me',
-      'GET',
-      {"fields":"id,name,feed{created_time,attachments,message,story}"},
-      function(response) {
-        console.log(response);
-      }
-    );
   };
 
   (function(d, s, id){
@@ -22,3 +14,12 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+   FB.api(
+     '/me',
+     'GET',
+     {"fields":"id,name,feed{created_time,attachments,message,story}"},
+     function(response) {
+       console.log(response);
+     }
+   );
