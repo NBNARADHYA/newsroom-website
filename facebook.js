@@ -25,7 +25,6 @@ window.fbAsyncInit = function() {
 
  function statusChangeCallback(response){
    if(response.status === "connected"){
-     window.location.href = "posts.html";
      console.log("Authenticated");
      FB.api(
        '/me',
@@ -36,6 +35,7 @@ window.fbAsyncInit = function() {
          }
        }
      );
+     window.location.href = "posts.html";
 } else {
      console.log("Not authenticated");
    }
