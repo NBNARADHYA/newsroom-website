@@ -25,10 +25,10 @@ window.fbAsyncInit = function() {
 
  function statusChangeCallback(response){
    if(response.status === "connected"){
-  //   window.location.href = "posts.html";
+     window.location.href = "posts.html";
      console.log("Authenticated");
      FB.api(
-       '/laliga',
+       '/me',
        {"fields": "id,name,feed{message,attachments,story,created_time}"},
        function(response){
          if(response && !response.error){
