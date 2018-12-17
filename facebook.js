@@ -28,7 +28,7 @@ window.fbAsyncInit = function() {
   //   window.location.href = "posts.html";
      console.log("Authenticated");
      FB.api(
-       '/me',
+       '/laliga',
        {"fields": "id,name,feed{message,attachments,story,created_time}"},
        function(response){
          if(response && !response.error){
