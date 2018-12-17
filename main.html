@@ -81,9 +81,6 @@
    </style>
  </head>
  <body onload="doalert()">
-   <script>
-
-   </script>
    <div id="fb-root"></div>
    <div class="header">
      <h1>NEWSROOM</h1>
@@ -100,17 +97,15 @@
       data-width="450"
       data-show-faces="true">
      </div>
-
-      <fb:login-button
-        class="fb-login"
-        scope="public_profile,email"
-        onlogin="checkLoginState();">
-      </fb:login-button>
-
      <a href="about_me.html" class="align_right">About Me</a>
    </div>
    <div class="main_body">
-     <p text-align="center" id="postfeed"> Facebook feed is going to be updated soon!</p>
+     <p text-align="center" id="postfeed">
+           <fb:login-button
+             class="fb-login"
+             scope="public_profile,email"
+             onlogin="checkLoginState();">
+           </fb:login-button></p>
    <div class="footer"><br>
      <div id="clockbox">
      <script type="text/javascript" src="time.js"></script><br>
