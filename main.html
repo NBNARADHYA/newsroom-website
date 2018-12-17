@@ -20,9 +20,14 @@
      box-sizing: border-box;
      font-family: sans-serif;
    }
-   .fb-like, fb:login-button {
+   .fb-like {
      margin-top: 14px;
      float: left;
+   }
+   fb:login-button {
+     margin-top: 14px;
+     float: left;
+     display: block;
    }
    body {
      margin: 0;
@@ -102,7 +107,7 @@
    <div class="main_body">
      <p text-align="center" id="postfeed">
            <fb:login-button
-             class="fb-login"
+             id="fb-login"
              scope="public_profile,email"
              onlogin="checkLoginState();">
            </fb:login-button></p>

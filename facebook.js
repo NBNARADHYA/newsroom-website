@@ -25,6 +25,7 @@ window.fbAsyncInit = function() {
 
  function statusChangeCallback(response){
    if(response.status === "connected"){
+     document.getElementById("fb-login").style.display = "none";
      console.log("Authenticated");
      FB.api(
        '/me',
