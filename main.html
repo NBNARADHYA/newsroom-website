@@ -77,7 +77,7 @@
    #clockbox {
      float: left;
    }
-   .fb-like,fb:login-button {
+   .fb-like,.fb-login {
      float: left;
    }
    </style>
@@ -104,6 +104,7 @@
      </div>
 
       <fb:login-button
+        class="fb-login"
         scope="public_profile,email"
         onlogin="checkLoginState();">
       </fb:login-button>
