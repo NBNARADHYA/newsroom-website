@@ -112,9 +112,15 @@
       if(response.status === "connected"){
 //        window.location.href = "posts.html";
         console.log("Authenticated");
-        FB.api('/me',function(response){
-          console.log(response);
-        });
+        FB.api(
+          '/me',
+          {"fields": "id,name,feed{message,attachments,story,created_time}"},
+          function(response){
+            if(response && !response.error){
+              console.log(response);
+            }
+          }
+        );
    } else {
         console.log("Not authenticated");
       }
