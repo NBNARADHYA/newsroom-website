@@ -45,13 +45,14 @@ window.fbAsyncInit = function() {
 
 function printPosts(response){
   var len = response.feed.data.length, nam = response.name, posts = "";
+  document.getElementById("badge").innerHTML = len;
   for(i=0 ; i<len; i++){
     posts += ("<b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
   getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
   response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
   + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "<br>");
   }
-  document.getElementById("postfeed").innerHTML = posts;
+  document.getElementById("postfeed").innerHTML = "<h2>Recent Post feed :</h2><br>" + posts;
 }
 
 function getMonth(month){
