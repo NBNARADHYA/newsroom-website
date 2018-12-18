@@ -9,6 +9,10 @@ window.fbAsyncInit = function() {
 
   FB.AppEvents.logPageView();
 
+  FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+  });
+
   setInterval(interval, 60000);
 
   function interval(){
