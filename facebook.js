@@ -45,7 +45,10 @@ window.fbAsyncInit = function() {
 
 function printPosts(response){
   var len = response.feed.data.length, nam = response.name, posts = "";
-  document.getElementById("badge").innerHTML = len;
+  if(len){
+    document.getElementById("badge").innerHTML = len;
+    document,getElementById("badge").style.display = block;
+  }
   for(i=0 ; i<len; i++){
     posts += ("<b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
   getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
