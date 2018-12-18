@@ -45,7 +45,6 @@ window.fbAsyncInit = function() {
          }
        }
      );
-  //   window.location.href = "posts.html";
 } else {
      console.log("Not authenticated");
    }
