@@ -25,6 +25,7 @@
      float: left;
    }
    fb:login-button {
+     padding: 14px 20px;
      margin-top: 14px;
      float: left;
      display: block;
@@ -89,14 +90,14 @@
    }
    </style>
  </head>
- <body onload="doalert()">
+ <body>
    <div id="fb-root"></div>
    <div class="header">
      <h1>NEWSROOM</h1>
      <p>Subscribe and get all required info posted on one page.</p>
    </div>
    <div class="nav_bar">
-     <a href="main.html"><i class="fa fa-home"></i> Home</a>
+     <a href="index.html"><i class="fa fa-home"></i> Home</a>
      <a href="https://www.iitism.ac.in/">IIT(ISM) Dhanbad</a>
      <a href="#" id="recent_posts">Recent Posts<span class="badge" id="badge"></span></a>
      <div id="google_translate_element" class="google_translate_element"></div>
@@ -109,6 +110,8 @@
      <a href="about_me.html" class="align_right">About Me</a>
    </div>
    <div class="main_body">
+     <h1>Hello!</h1>
+     <h2>Login with Facebook to get post feed:</h2>
      <p text-align="center" id="postfeed">
            <fb:login-button
              id="fb-login"

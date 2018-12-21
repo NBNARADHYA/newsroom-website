@@ -39,7 +39,7 @@ window.fbAsyncInit = function() {
        function(response){
          if(response && !response.error){
            console.log(response);
-           alert("Welcome again! " + response.name);
+           alert("Welcome again " + response.name + "!");
            printPosts(response);
          }
        }
