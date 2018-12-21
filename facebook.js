@@ -33,13 +33,13 @@ window.fbAsyncInit = function() {
    if(response.status === "connected"){
      document.getElementById("fb-login").style.display = "none";
      console.log("Authenticated");
-     alert("Welcome again! " + response.name);
      FB.api(
        '/me',
        {"fields": "id,name,feed{message,attachments,story,created_time}"},
        function(response){
          if(response && !response.error){
            console.log(response);
+           alert("Welcome again! " + response.name);
            printPosts(response);
          }
        }
