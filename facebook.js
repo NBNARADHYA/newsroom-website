@@ -93,10 +93,6 @@ function getMonth(month){
 
  function log_out() {
    FB.logout(function(response){
-     document.getElementById("log-out").style.display = "none";
-     document.getElementById("postfeed").innerHTML = "";
-     document.getElementById("hello").style.display = "block";
-     document.getElementById("login_text").style.display = "block";
-     document.getElementById("fb-login").style.display = "block";
+     window.location.href = "index.html";
    });
  }
