@@ -31,10 +31,10 @@ window.fbAsyncInit = function() {
 
  function statusChangeCallback(response){
    if(response.status === "connected"){
+     document.getElementById("log-out").style.display = "inline";
      document.getElementById("hello").style.display = "none";
      document.getElementById("login_text").style.display = "none";
      document.getElementById("fb-login").style.display = "none";
-     document.getElementById("log-out").style.display = "inline";
      console.log("Authenticated");
      FB.api(
        '/me',
