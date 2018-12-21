@@ -35,7 +35,7 @@ function cookieCheck() {
   }
   window.location.href="main.html";
 }
-function doalert() {
+/*function doalert() {
   var user=getCookie("username");
   alert("Welcome Again " + user);
-}
+}*/

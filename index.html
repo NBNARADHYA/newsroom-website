@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial scale=1">
   <script type="text/javascript" src="cookie.js"></script>
+  <script type="text/javascript" src="facebook.js"></script>
   <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
@@ -15,12 +16,18 @@
   <link rel="stylesheet" href=
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
-   .fb-like {
-     margin-top: 14px;
-   }
    * {
      box-sizing: border-box;
      font-family: sans-serif;
+   }
+   .fb-like {
+     margin-top: 14px;
+     float: left;
+   }
+   fb:login-button {
+     margin-top: 14px;
+     float: left;
+     display: block;
    }
    body {
      margin: 0;
@@ -49,6 +56,15 @@
      overflow: hidden;
      position: sticky;
    }
+   #recent_posts {
+     display: none;
+   }
+   .nav_bar .badge {
+     padding: 2px 5px;
+     background-color: black;
+     border-radius: 100%;
+     display: none;
+    }
    .nav_bar a {
      float: left;
      display: block;
@@ -64,126 +80,45 @@
      background-color: #595959;
      color: white;
    }
-   .main_body {
-     display: flex;
-     flex-wrap: wrap;
-   }
-   .main_body::after {
-     content: "";
-     clear: both;
-     display: table;
-   }
-   .top, .bottom {
-     flex: 100%;
-     padding: 20px;
+   .footer {
+     border-top: 5px solid black;
      background-color: white;
    }
-   .bottom {
-     flex: 100%;
-     padding: 0 20px 20px;
-     background-color: white;
+   #clockbox {
+     float: left;
    }
-   input[type="text"], input[type="Email"]{
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-}
-  input[type="submit"] {
-    background-color: #339933;
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-  }
-  input[type="submit"]:hover {
-    background-color: #595959;
-    color: white;
-    padding: 12px 20px;
-  }
-  .bottom a {
-    background-color: #339933;
-    padding: 14px 20px;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-  }
-  .bottom a:hover {
-    background-color: #595959;
-    color: white;
-  }
-  .footer {
-    border-top: 5px solid black;
-    text-align: center;
-    background-color: white;
-  }
-  </style>
-</head>
-<body onload="checkCookie()">
-  <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '359151004888978',
-      autoLogAppEvents : true,
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v3.2'
-    });
-
-    FB.AppEvents.logPageView();
-
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-
-   function statusChangeCallback(response){
-     if(response.status === "connected"){
-       console.log("Authenticated");
-     } else {
-       console.log("Not authenticated");
-     }
-   }
-  </script>
-  <div id="fb-root"></div>
-  <div class="header">
-    <h1>NEWSROOM</h1>
-    <p>Subscribe and get all required info posted on one page.</p>
-  </div>
-  <div class="nav_bar">
-    <a href="index.html"><i class="fa fa-home"></i> Home</a>
-    <a href="https://www.iitism.ac.in/">IIT(ISM) Dhanbad</a>
-    <div id="google_translate_element" class="google_translate_element"></div>
-    <a href="about_me.html" class="align_right">About Me</a>
-  </div>
-  <div class="main_body">
-    <div class="top">
-      <h3>Subscribe for all the pages in one go</h3><br>
-      <form name="myForm" onsubmit="cookieCheck()">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="fname"><br>
-        <label for="email">Email I'D:</label><br>
-        <input type="Email" id="email"><br><br>
-        <input type="submit" value="Subscribe">
-      </form>
-      <br><br>
-      <h1>OR</h1>
-    </div>
-    <div class="bottom">
-      <a href="#">Subscribe for specific pages</a>
-    </div>
-    <div class="footer"><br>
-      <div id="clockbox">
-      <script type="text/javascript" src="time.js"></script>
-    </div>
-    </div>
-  </body>
-  </html>
+   </style>
+ </head>
+ <body onload="doalert()">
+   <div id="fb-root"></div>
+   <div class="header">
+     <h1>NEWSROOM</h1>
+     <p>Subscribe and get all required info posted on one page.</p>
+   </div>
+   <div class="nav_bar">
+     <a href="main.html"><i class="fa fa-home"></i> Home</a>
+     <a href="https://www.iitism.ac.in/">IIT(ISM) Dhanbad</a>
+     <a href="#" id="recent_posts">Recent Posts<span class="badge" id="badge"></span></a>
+     <div id="google_translate_element" class="google_translate_element"></div>
+     <div
+      class="fb-like"
+      data-share="true"
+      data-width="450"
+      data-show-faces="true">
+     </div>
+     <a href="about_me.html" class="align_right">About Me</a>
+   </div>
+   <div class="main_body">
+     <p text-align="center" id="postfeed">
+           <fb:login-button
+             id="fb-login"
+             scope="public_profile,email"
+             onlogin="checkLoginState();">
+           </fb:login-button></p>
+   <div class="footer"><br>
+     <div id="clockbox">
+     <script type="text/javascript" src="time.js"></script><br>
+   </div>
+   </div>
+ </body>
+ </html>

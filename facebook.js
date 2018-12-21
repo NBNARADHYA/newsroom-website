@@ -13,11 +13,11 @@ window.fbAsyncInit = function() {
       statusChangeCallback(response);
   });
 
-  setInterval(function(){
+/*  setInterval(function(){
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
     });
-  }, 60000);
+  }, 60000); */
 
 };
 
@@ -33,6 +33,7 @@ window.fbAsyncInit = function() {
    if(response.status === "connected"){
      document.getElementById("fb-login").style.display = "none";
      console.log("Authenticated");
+     alert("Welcome again! " + response.name);
      FB.api(
        '/me',
        {"fields": "id,name,feed{message,attachments,story,created_time}"},
@@ -52,6 +53,7 @@ function printPosts(response){
   var len = response.feed.data.length, nam = response.name, posts = "";
   if(len){
     document.getElementById("badge").innerHTML = len;
+    document.getElementById("recent_posts").style.display = "inline";
     document.getElementById("badge").style.display = "inline";
   }
   for(i=0 ; i<len; i++){
