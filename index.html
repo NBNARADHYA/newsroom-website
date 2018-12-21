@@ -81,6 +81,9 @@
      background-color: #595959;
      color: white;
    }
+   main_body h1, main_body h2 {
+     display: none;
+   }
    .footer {
      border-top: 5px solid black;
      background-color: white;
@@ -110,8 +113,8 @@
      <a href="about_me.html" class="align_right">About Me</a>
    </div>
    <div class="main_body">
-     <h1>Hello!</h1>
-     <h2>Login with Facebook to get post feed:</h2>
+     <h1 id="hello">Hello!</h1>
+     <h2 id="login_text">Login with Facebook to get post feed:</h2>
      <p text-align="center" id="postfeed">
            <fb:login-button
              id="fb-login"

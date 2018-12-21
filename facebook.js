@@ -46,6 +46,8 @@ window.fbAsyncInit = function() {
      );
 } else {
      console.log("Not authenticated");
+     document.getElementById("hello").style.display = "inline";
+     document.getElementById("login_text").style.display = "inline";
    }
  }
 
