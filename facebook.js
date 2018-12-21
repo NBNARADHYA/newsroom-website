@@ -31,6 +31,8 @@ window.fbAsyncInit = function() {
 
  function statusChangeCallback(response){
    if(response.status === "connected"){
+     document.getElementById("hello").style.display = "none";
+     document.getElementById("login_text").style.display = "none";
      document.getElementById("fb-login").style.display = "none";
      console.log("Authenticated");
      FB.api(
@@ -46,8 +48,6 @@ window.fbAsyncInit = function() {
      );
 } else {
      console.log("Not authenticated");
-     document.getElementById("hello").style.display = "inline";
-     document.getElementById("login_text").style.display = "inline";
    }
  }
 
