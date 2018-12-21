@@ -69,6 +69,10 @@
    .nav_bar a.align_right {
      float: right;
    }
+   #log-out {
+     display: none;
+     float: right;
+   }
    .nav_bar a:hover, .nav_bar a:visited {
      background-color: #595959;
      color: white;
@@ -89,8 +93,8 @@
    #clockbox {
      float: left;
    }
-   fb-like {
-     float: left;
+   .fb-like {
+     float: right;
    }
    </style>
  </head>
@@ -103,12 +107,7 @@
      <a href="https://www.iitism.ac.in/">IIT(ISM) Dhanbad</a>
      <a href="index.html" id="recent_posts">Recent Posts<span class="badge"></span></a>
      <div id="google_translate_element" class="google_translate_element"></div>
-     <div
-      class="fb-like"
-      data-share="true"
-      data-width="450"
-      data-show-faces="true">
-     </div>
+     <a href="#" id="log-out" onclick="log_out()">Log Out</a>
      <a href="#" class="align_right">About Me</a>
    </div>
    <div class="main_body">
@@ -131,9 +130,15 @@
      </p>
    </div>
    <div class="footer"><br>
-     <div id="clockbox">
+     <label id="clockbox">
      <script type="text/javascript" src="time.js"></script><br>
-   </div>
+   </label>
+   <label
+    class="fb-like"
+    data-share="true"
+    data-width="450"
+    data-show-faces="true">
+  </label>
    </div>
  </body>
  </html>
