@@ -49,7 +49,6 @@ window.fbAsyncInit = function() {
      );
 } else {
      console.log("Not authenticated");
-     document.getElementById("postfeed").innerHTML = "";
    }
  }
 
@@ -94,6 +93,9 @@ function getMonth(month){
 
  function log_out() {
    FB.logout(function(response){
-
+     document.getElementById("postfeed").innerHTML = "";
+     document.getElementById("hello").style.display = "block";
+     document.getElementById("login_text").style.display = "block";
+     document.getElementById("fb-login").style.display = "block";
    });
  }
