@@ -34,6 +34,7 @@ window.fbAsyncInit = function() {
      document.getElementById("hello").style.display = "none";
      document.getElementById("login_text").style.display = "none";
      document.getElementById("fb-login").style.display = "none";
+     document.getElementById("log-out").style.display = "inline";
      console.log("Authenticated");
      FB.api(
        '/me',
@@ -48,6 +49,7 @@ window.fbAsyncInit = function() {
      );
 } else {
      console.log("Not authenticated");
+     document.getElementById("postfeed").innerHTML = "";
    }
  }
 
@@ -87,5 +89,11 @@ function getMonth(month){
  function checkLoginState() {
    FB.getLoginStatus(function(response) {
      statusChangeCallback(response);
+   });
+ }
+
+ function log_out() {
+   FB.logout(function(response){
+
    });
  }
