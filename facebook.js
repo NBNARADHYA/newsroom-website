@@ -1,3 +1,5 @@
+var PosTs = "";
+
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '359151004888978',
@@ -13,11 +15,11 @@ window.fbAsyncInit = function() {
       statusChangeCallback(response);
   });
 
-/*  setInterval(function(){
+  setInterval(function(){
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
     });
-  }, 60000); */
+  }, 60000);
 
 };
 
