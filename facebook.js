@@ -17,7 +17,7 @@ window.fbAsyncInit = function() {
 
   setInterval(function(){
     FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
+        statusChangeCallback1(response);
     });
   }, 5000);
 
@@ -54,6 +54,34 @@ window.fbAsyncInit = function() {
    }
  }
 
+function statusChangeCallback1(response) {
+  if(response.status === "connected"){
+    console.log("Authenticated");
+    FB.api(
+      '/me',
+      {"fields": "id,name,feed{message,attachments,story,created_time}"},
+      function(response){
+        if(response && !response.error){
+          console.log(response);
+          var len = response.feed.data.length, posts = "";
+          for(i=0 ; i<len; i++){
+            posts += ("<b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+          getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
+          response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
+          + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "<br>");
+          }
+          if(posts != PosTs){
+            document.getElementById("badge").innerHTML = len;
+            PosTs = posts;
+          }
+        }
+      }
+    );
+} else {
+    console.log("Not authenticated");
+  }
+}
+
 function printPosts(response){
   var len = response.feed.data.length, nam = response.name, posts = "";
   if(len){
@@ -67,6 +95,7 @@ function printPosts(response){
   response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
   + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "<br>");
   }
+  PosTs += posts;
   document.getElementById("postfeed").innerHTML = "<h2>Recent Post feed :</h2><br>" + posts;
 }
 
