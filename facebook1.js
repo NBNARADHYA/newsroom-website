@@ -13,6 +13,12 @@ window.fbAsyncInit = function() {
       statusChangeCallback(response);
   });
 
+  setInterval(function(){
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback1(response);
+    });
+  }, 5000);
+
 };
 
 (function(d, s, id){
@@ -38,6 +44,37 @@ window.fbAsyncInit = function() {
        }
      );
 } else {
+     console.log("Not authenticated");
+   }
+ }
+
+ function statusChangeCallback1(response) {
+   if(response.status === "connected"){
+     console.log("Authenticated");
+     FB.api(
+       '/me',
+       {"fields": "id,name,feed{message,attachments,story,created_time}"},
+       function(response){
+         if(response && !response.error){
+           console.log(response);
+           var len = response.feed.data.length, posts = "", nam = response.name;
+           for(i=0 ; i<len; i++){
+             posts += ("<b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+           getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
+           response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
+           + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "<br>");
+           }
+           if(posts != PosTs){
+             document.getElementById("badge").innerHTML = len;
+             document.getElementById("badge").style.display = "inline";
+             PosTs = posts;
+           } else {
+             document.getElementById("badge").style.display = "none";
+           }
+         }
+       }
+     );
+ } else {
      console.log("Not authenticated");
    }
  }
