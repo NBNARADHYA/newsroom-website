@@ -19,7 +19,7 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
         statusChangeCallback1(response);
     });
-  }, 10000);
+  }, 120000);
 
 };
 

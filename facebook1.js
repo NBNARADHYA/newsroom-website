@@ -17,7 +17,7 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
         statusChangeCallback1(response);
     });
-  }, 5000);
+  }, 120000);
 
 };
 
