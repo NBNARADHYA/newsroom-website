@@ -33,7 +33,7 @@ window.fbAsyncInit = function() {
 
  function statusChangeCallback(response){
    if(response.status === "connected"){
-     console.log("Authenticated");
+     console.log("Authenticated Hello");
      document.getElementById("log-out").style.display = "inline";
      document.getElementById("hello").style.display = "none";
      document.getElementById("login_text").style.display = "none";
