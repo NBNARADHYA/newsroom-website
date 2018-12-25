@@ -63,7 +63,7 @@ function statusChangeCallback1(response) {
       function(response){
         if(response && !response.error){
           console.log(response);
-          var len = response.feed.data.length, posts = "";
+          var len = response.feed.data.length, posts = "", nam = response.name;
           for(i=0 ; i<len; i++){
             posts += ("<b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
           getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
