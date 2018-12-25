@@ -42,11 +42,11 @@ window.fbAsyncInit = function() {
        '/me',
        {"fields": "id,name,feed{message,attachments,story,created_time}"},
        function(response){
-//         if(response && !response.error){
+         if(response && !response.error){
            console.log(response);
            alert("Welcome again " + response.name + "!");
            printPosts(response);
-  //       }
+        }
        }
      );
 } else {
