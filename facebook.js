@@ -1,4 +1,4 @@
-var PosTs = "";
+var posts1 = "";
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -70,10 +70,10 @@ function statusChangeCallback1(response) {
           response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
           + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "<br>");
           }
-          if(posts != PosTs){
+          if(posts != posts1){
             document.getElementById("badge").innerHTML = len;
             document.getElementById("badge").style.display = "inline";
-            PosTs = posts;
+            posts1 = posts;
           } else {
             document.getElementById("badge").style.display = "none";
           }
@@ -98,7 +98,7 @@ function printPosts(response){
   response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
   + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "<br>");
   }
-  PosTs += posts;
+  posts1 += posts;
   document.getElementById("postfeed").innerHTML = "<h2>Recent Post feed :</h2><br>" + posts;
 }
 
