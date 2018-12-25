@@ -15,11 +15,11 @@ window.fbAsyncInit = function() {
       statusChangeCallback(response);
   });
 
-  /*setInterval(function(){
+  setInterval(function(){
     FB.getLoginStatus(function(response) {
         statusChangeCallback1(response);
     });
-  }, 10000);*/
+  }, 10000);
 
 };
 
