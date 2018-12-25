@@ -19,7 +19,7 @@ window.fbAsyncInit = function() {
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
     });
-  }, 60000);
+  }, 5000);
 
 };
 
@@ -33,11 +33,11 @@ window.fbAsyncInit = function() {
 
  function statusChangeCallback(response){
    if(response.status === "connected"){
+     console.log("Authenticated");
      document.getElementById("log-out").style.display = "inline";
      document.getElementById("hello").style.display = "none";
      document.getElementById("login_text").style.display = "none";
      document.getElementById("fb-login").style.display = "none";
-     console.log("Authenticated");
      FB.api(
        '/me',
        {"fields": "id,name,feed{message,attachments,story,created_time}"},
