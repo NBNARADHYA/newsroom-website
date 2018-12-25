@@ -72,7 +72,12 @@ function statusChangeCallback1(response) {
           }
           if(posts != PosTs){
             document.getElementById("badge").innerHTML = len;
+            document.getElementById("recent_posts").style.display = "inline";
+            document.getElementById("badge").style.display = "inline";
             PosTs = posts;
+          } else {
+            document.getElementById("badge").style.display = "none";
+            document.getElementById("recent_posts").style.display = "none";
           }
         }
       }
