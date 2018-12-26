@@ -90,7 +90,7 @@ function statusChangeCallback1(response) {
               label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-              + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>";
+              + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
               posts.appendChild(label);
               var video = document.createElement('div');
               video.classList.add("fb-video");
@@ -142,7 +142,7 @@ function printPosts(response){
       label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-      + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>";
+      + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
       posts.appendChild(label);
       var video = document.createElement('div');
       video.classList.add("fb-video");
