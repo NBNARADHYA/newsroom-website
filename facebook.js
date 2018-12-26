@@ -51,7 +51,7 @@ window.fbAsyncInit = function() {
      FB.api(
        '/379659976120888',
        'GET',
-       {"fields": "id,name,feed{created_time,message,attachments}"},
+       {"fields": "id,name,picture,feed{created_time,message,attachments}"},
        function(response){
          if(response && !response.error){
            console.log(response);
@@ -69,7 +69,7 @@ function statusChangeCallback1(response) {
     console.log("Authenticated");
     FB.api(
       '/379659976120888',
-      {"fields": "id,name,feed{created_time,message,attachments}"},
+      {"fields": "id,name,picture,feed{created_time,message,attachments}"},
       function(response){
         if(response && !response.error){
           console.log(response);
@@ -81,7 +81,7 @@ function statusChangeCallback1(response) {
               div.style.margin = "25px";
               div.style.border = "solid";
               div.style.padding = "25px";
-              div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+              div.innerHTML = "<br><img src="response.picture.data.url"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
@@ -91,7 +91,7 @@ function statusChangeCallback1(response) {
               div.style.margin = "25px";
               div.style.border = "solid";
               div.style.padding = "25px";
-              div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+              div.innerHTML = "<br><img src="response.picture.data.url"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
@@ -132,7 +132,7 @@ function printPosts(response){
       div.style.margin = "25px";
       div.style.border = "solid";
       div.style.padding = "25px";
-      div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+      div.innerHTML = "<br><img src="response.picture.data.url"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
@@ -142,7 +142,7 @@ function printPosts(response){
       div.style.border = "solid";
       div.style.margin = "25px";
       div.style.padding = "25px";
-      div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+      div.innerHTML = "<br><img src="response.picture.data.url"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
