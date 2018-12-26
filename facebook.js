@@ -80,6 +80,7 @@ function statusChangeCallback1(response) {
               var div = document.createElement('div');
               div.style.margin = "25px";
               div.style.border = "solid";
+              div.style.padding = "25px";
               div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
@@ -89,6 +90,7 @@ function statusChangeCallback1(response) {
               var div = document.createElement('div');
               div.style.margin = "25px";
               div.style.border = "solid";
+              div.style.padding = "25px";
               div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
@@ -96,12 +98,8 @@ function statusChangeCallback1(response) {
               posts.appendChild(div);
               var video = document.createElement('div');
               video.classList.add("fb-video");
-              video.setAttribute("data-href" , "https://www.facebook.com/379659976120888/videos/1226228857553051/");
-              video.setAttribute("width" , "404");
-              video.setAttribute("height" , "720");
-              video.setAttribute("data-allowfullscreen" , "true");
-              video.setAttribute("data-autoplay" , "true");
-              video.setAttribute("data-show-captions" , "true");
+              video.data.href = "https://www.facebook.com/379659976120888/videos/1226228857553051/";
+              video.style.data.width = "404";
               posts.appendChild(video);
           }
           }
@@ -134,6 +132,7 @@ function printPosts(response){
       var div = document.createElement('div');
       div.style.margin = "25px";
       div.style.border = "solid";
+      div.style.padding = "25px";
       div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
@@ -143,6 +142,7 @@ function printPosts(response){
       var div = document.createElement('div');
       div.style.border = "solid";
       div.style.margin = "25px";
+      div.style.padding = "25px";
       div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
@@ -150,13 +150,8 @@ function printPosts(response){
       posts.appendChild(div);
       var video = document.createElement('div');
       video.classList.add("fb-video");
-      video.setAttribute("data-href" , "https://www.facebook.com/379659976120888/videos/1226228857553051/");
-      video.setAttribute("width" , "404");
-      video.setAttribute("height" , "720");
-      video.setAttribute("data-allowfullscreen" , "true");
-      video.setAttribute("data-autoplay" , "true");
-      video.setAttribute("data-show-captions" , "true");
-      posts.appendChild(video);
+      video.data.href = "https://www.facebook.com/379659976120888/videos/1226228857553051/";
+      video.style.data.width = "404";
   }
   }
     posts1 += posts;
