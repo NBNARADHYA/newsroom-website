@@ -76,7 +76,7 @@ function statusChangeCallback1(response) {
           var len = response.feed.data.length, nam = response.name;
           var posts = document.createElement('div');
           posts.style.margin = "25px";
-          posts.style.border-style = "solid";
+          posts.style.border = "solid";
           for(i=0 ; i<len; i++){
             if(response.feed.data[i].message){
               var label = document.createElement('label');
@@ -129,7 +129,7 @@ function printPosts(response){
   }
   var posts = document.createElement('div');
   posts.style.margin = "25px";
-  posts.style.border-style = "solid";
+  posts.style.border = "solid";
   for(i=0 ; i<len; i++){
     if(response.feed.data[i].message){
       var label = document.createElement('label');
