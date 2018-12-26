@@ -97,9 +97,7 @@ function statusChangeCallback1(response) {
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
               posts.appendChild(div);
               var video = document.createElement('div');
-              video.classList.add("fb-video");
-              video.data.href = "https://www.facebook.com/379659976120888/videos/1226228857553051/";
-              video.style.data.width = "404";
+              video.innerHTML = '<div class="fb-video" data-href="https://www.facebook.com/379659976120888/videos/1226228857553051/" data-width="500" data-show-text="false"></div>';
               posts.appendChild(video);
           }
           }
@@ -149,9 +147,8 @@ function printPosts(response){
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
       posts.appendChild(div);
       var video = document.createElement('div');
-      video.classList.add("fb-video");
-      video.data.href = "https://www.facebook.com/379659976120888/videos/1226228857553051/";
-      video.style.data.width = "404";
+      video.innerHTML = '<div class="fb-video" data-href="https://www.facebook.com/379659976120888/videos/1226228857553051/" data-width="500" data-show-text="false"></div>';
+      posts.appendChild(video);
   }
   }
     posts1 += posts;
