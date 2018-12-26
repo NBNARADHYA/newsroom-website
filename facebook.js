@@ -75,8 +75,8 @@ function statusChangeCallback1(response) {
           console.log(response);
           var len = response.feed.data.length, nam = response.name;
           var posts = document.createElement('div');
-          posts.style.margin-top = "25px";
-          posts.style.border-style = "solid";
+          posts.setAttribute("margin" , "25");
+          posts.setAttribute("border-style" , "solid");
           for(i=0 ; i<len; i++){
             if(response.feed.data[i].message){
               var label = document.createElement('label');
@@ -124,8 +124,8 @@ function printPosts(response){
     document.getElementById("badge").style.display = "inline";
   }
   var posts = document.createElement('div');
-  posts.style.margin-top = "25px";
-  posts.style.border-style = "solid";
+  posts.setAttribute("margin" , "25");
+  posts.setAttribute("border-style" , "solid");
   for(i=0 ; i<len; i++){
     if(response.feed.data[i].message){
       var label = document.createElement('label');
