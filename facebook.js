@@ -75,23 +75,25 @@ function statusChangeCallback1(response) {
           console.log(response);
           var len = response.feed.data.length, nam = response.name;
           var posts = document.createElement('div');
-          posts.style.margin = "25px";
-          posts.style.border = "solid";
           for(i=0 ; i<len; i++){
             if(response.feed.data[i].message){
-              var label = document.createElement('label');
-              label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+              var div = document.createElement('div');
+              div.style.margin = "25px";
+              div.style.border = "solid";
+              div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
-              posts.appendChild(label);
+              posts.appendChild(div);
             } else {
-              var label = document.createElement('label');
-              label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+              var label = document.createElement('div');
+              div.style.margin = "25px";
+              div.style.border = "solid";
+              div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
-              posts.appendChild(label);
+              posts.appendChild(div);
               var video = document.createElement('div');
               video.classList.add("fb-video");
               video.setAttribute("data-href" , "https://www.facebook.com/379659976120888/videos/1226228857553051/");
@@ -127,23 +129,25 @@ function printPosts(response){
     document.getElementById("badge").style.display = "inline";
   }
   var posts = document.createElement('div');
-  posts.style.margin = "25px";
-  posts.style.border = "solid";
   for(i=0 ; i<len; i++){
     if(response.feed.data[i].message){
-      var label = document.createElement('label');
-      label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+      var div = document.createElement('div');
+      div.style.margin = "25px";
+      div.style.border = "solid";
+      div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
       posts.appendChild(label);
     } else {
-      var label = document.createElement('label');
-      label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+      var div = document.createElement('div');
+      div.style.border = "solid";
+      div.style.margin = "25px";
+      div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
-      posts.appendChild(label);
+      posts.appendChild(div);
       var video = document.createElement('div');
       video.classList.add("fb-video");
       video.setAttribute("data-href" , "https://www.facebook.com/379659976120888/videos/1226228857553051/");
