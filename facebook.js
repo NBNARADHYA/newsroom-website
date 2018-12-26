@@ -86,7 +86,7 @@ function statusChangeCallback1(response) {
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
               posts.appendChild(div);
             } else {
-              var label = document.createElement('div');
+              var div = document.createElement('div');
               div.style.margin = "25px";
               div.style.border = "solid";
               div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
@@ -138,7 +138,7 @@ function printPosts(response){
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
-      posts.appendChild(label);
+      posts.appendChild(div);
     } else {
       var div = document.createElement('div');
       div.style.border = "solid";
