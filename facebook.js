@@ -75,8 +75,8 @@ function statusChangeCallback1(response) {
           console.log(response);
           var len = response.feed.data.length, nam = response.name;
           var posts = document.createElement('div');
-          posts.setAttribute("margin" , "25");
-          posts.setAttribute("border-style" , "solid");
+          posts.style.margin = "25px";
+          posts.style.border-style = "solid";
           for(i=0 ; i<len; i++){
             if(response.feed.data[i].message){
               var label = document.createElement('label');
@@ -128,8 +128,8 @@ function printPosts(response){
     document.getElementById("badge").style.display = "inline";
   }
   var posts = document.createElement('div');
-  posts.setAttribute("margin" , "25");
-  posts.setAttribute("border-style" , "solid");
+  posts.style.margin = "25px";
+  posts.style.border-style = "solid";
   for(i=0 ; i<len; i++){
     if(response.feed.data[i].message){
       var label = document.createElement('label');
@@ -145,14 +145,15 @@ function printPosts(response){
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
       posts.appendChild(label);
-      var video = document.createElement('div');
+      /*var video = document.createElement('div');
       video.classList.add("fb-video");
       video.setAttribute("data-href" , "https://www.facebook.com/379659976120888/videos/1226228857553051/");
       video.setAttribute("width" , "404");
       video.setAttribute("height" , "720");
       video.setAttribute("data-allowfullscreen" , "true");
       video.setAttribute("data-autoplay" , "true");
-      video.setAttribute("data-show-captions" , "true");
+      video.setAttribute("data-show-captions" , "true");*/
+      let video = '<div class="fb-video" data-href="https://www.facebook.com/FacebookDevelopers/posts/10151471074398553" data-width="500" data-allowfullscreen="true" data-autoplay="true" data-show-captions="true"></div>';
       posts.appendChild(video);
   }
   }
