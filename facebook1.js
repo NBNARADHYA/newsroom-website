@@ -1,3 +1,5 @@
+var posts1 = "";
+
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '359151004888978',
@@ -64,10 +66,10 @@ window.fbAsyncInit = function() {
            response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
            + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "<br>");
            }
-           if(posts != PosTs){
+           if(posts != posts1){
              document.getElementById("badge").innerHTML = len;
              document.getElementById("badge").style.display = "inline";
-             PosTs = posts;
+             posts1 = posts;
            } else {
              document.getElementById("badge").style.display = "none";
            }
@@ -97,12 +99,19 @@ window.fbAsyncInit = function() {
  }
 
 function showRecentPosts(response) {
-  var len = response.feed.data.length;
+  var len = response.feed.data.length, posts = "";
   if(len){
     document.getElementById("badge").innerHTML = len;
     document.getElementById("recent_posts").style.display = "inline";
     document.getElementById("badge").style.display = "inline";
   }
+  for(i=0 ; i<len; i++){
+    posts += ("<b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+  getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
+  response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
+  + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "<br>");
+  }
+  posts1 += posts;
 }
 
  function log_out() {
