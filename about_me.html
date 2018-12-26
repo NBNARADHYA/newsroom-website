@@ -49,6 +49,11 @@
      overflow: hidden;
      position: sticky;
    }
+   .sticky {
+     position: fixed;
+     top: 0;
+     width: 100%;
+   }
    #recent_posts {
      display: none;
    }
@@ -106,6 +111,20 @@
      <div id="google_translate_element" class="google_translate_element"></div>
      <a href="#" id="log-out" onclick="log_out()">Log Out</a>
    </div>
+   <script type="text/javascript">
+     window.onscroll = function(){
+       makeSticky();
+     }
+     var navbar = document.getElementById("nav_bar");
+     var sticky = navbar.offsetTop;
+     function makeSticky(){
+       if(window.pageYOffset >= sticky){
+         navbar.classList.add("sticky");
+       } else{
+         navbar.classList.remove("sticky");
+       }
+     }
+   </script>
    <div class="main_body">
      <h2>About Me:</h2>
      <p>

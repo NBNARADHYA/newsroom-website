@@ -57,6 +57,11 @@
      overflow: hidden;
      position: sticky;
    }
+   .sticky {
+     position: fixed;
+     top: 0;
+     width: 100%;
+   }
    #recent_posts {
      display: none;
    }
@@ -103,7 +108,7 @@
      <h1>NEWSROOM</h1>
      <p>Subscribe and get all required info posted on one page.</p>
    </div>
-   <div class="nav_bar">
+   <div class="nav_bar" id="nav_bar">
      <a href="index.html"><i class="fa fa-home"></i> Home</a>
      <a href="https://www.iitism.ac.in/">IIT(ISM) Dhanbad</a>
      <a href="#" id="recent_posts">Recent Posts<span class="badge" id="badge"></span></a>
@@ -111,6 +116,20 @@
      <a href="#" id="log-out" onclick="log_out()">Log Out</a>
      <a href="about_me.html" class="align_right">About Me</a>
    </div>
+   <script type="text/javascript">
+     window.onscroll = function(){
+       makeSticky();
+     }
+     var navbar = document.getElementById("nav_bar");
+     var sticky = navbar.offsetTop;
+     function makeSticky(){
+       if(window.pageYOffset >= sticky){
+         navbar.classList.add("sticky");
+       } else{
+         navbar.classList.remove("sticky");
+       }
+     }
+   </script>
    <div class="main_body">
      <h1 id="hello">Hello!</h1>
      <h2 id="login_text">Login with Facebook to get post feed:</h2>
