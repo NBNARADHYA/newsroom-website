@@ -73,24 +73,37 @@ function statusChangeCallback1(response) {
       function(response){
         if(response && !response.error){
           console.log(response);
-          var len = response.feed.data.length, posts = "", nam = response.name;
+          var len = response.feed.data.length, nam = response.name;
+          var posts = document.createElement('div');
+          posts.style.margin-top = "25px";
+          posts.style.border-style = "solid";
           for(i=0 ; i<len; i++){
             if(response.feed.data[i].message){
-              posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
-            getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
-            response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-            + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "</div>");
+              var label = document.createElement('label');
+              label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+              getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
+              response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
+              + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
+              posts.appendChild(label);
             } else {
-            posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
-          getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
-          response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-          + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video><source src="response.feed.data[i].attachments.url" type="video/mp4">Your browser does not support the video tag.</video>"
-          + "</div>");
+              var label = document.createElement('label');
+              label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+              getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
+              response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
+              + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>";
+              posts.appendChild(label);
+              var video = document.createElement('video');
+              video.setAttribute("src" , response.feed.data[i].attachments.data[0].url);
+              video.setAttribute("width" , response.feed.data[i].attachments.data[0].media.image.width);
+              video.setAttribute("height" , response.feed.data[i].attachments.data[0].media.image.height);
+              video.setAttribute("controls" , "controls");
+              posts.appendChild(video);
           }
           }
           if(posts != posts1){
             document.getElementById("badge").innerHTML = len;
             document.getElementById("badge").style.display = "inline";
+            printPosts(response);
             posts1 = posts;
           } else {
             document.getElementById("badge").style.display = "none";
@@ -104,28 +117,41 @@ function statusChangeCallback1(response) {
 }
 
 function printPosts(response){
-  var len = response.feed.data.length, nam = response.name, posts = "";
+  var len = response.feed.data.length, nam = response.name;
   if(len){
     document.getElementById("badge").innerHTML = len;
     document.getElementById("recent_posts").style.display = "inline";
     document.getElementById("badge").style.display = "inline";
   }
+  var posts = document.createElement('div');
+  posts.style.margin-top = "25px";
+  posts.style.border-style = "solid";
   for(i=0 ; i<len; i++){
     if(response.feed.data[i].message){
-      posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
-    getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
-    response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-    + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "</div>");
+      var label = document.createElement('label');
+      label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+      getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
+      response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
+      + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
+      posts.appendChild(label);
     } else {
-    posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
-  getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
-  response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-  + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video><source src="response.feed.data[i].attachments.url" type="video/mp4">Your browser does not support the video tag.</video>"
-  + "</div>");
+      var label = document.createElement('label');
+      label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+      getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
+      response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
+      + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>";
+      posts.appendChild(label);
+      var video = document.createElement('video');
+      video.setAttribute("src" , response.feed.data[i].attachments.data[0].url);
+      video.setAttribute("width" , response.feed.data[i].attachments.data[0].media.image.width);
+      video.setAttribute("height" , response.feed.data[i].attachments.data[0].media.image.height);
+      video.setAttribute("controls" , "controls");
+      posts.appendChild(video);
   }
   }
     posts1 += posts;
-    document.getElementById("postfeed").innerHTML = "<h2>Recent Post feed :</h2><br>" + posts;
+    document.getElementById("postfeed").innerHTML = "<h2>Recent Post feed :</h2><br>";
+    document.getElementById("postfeed").appendChild(posts);
 }
 
 function getMonth(month){
