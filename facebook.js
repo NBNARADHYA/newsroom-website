@@ -39,13 +39,22 @@ window.fbAsyncInit = function() {
      document.getElementById("login_text").style.display = "none";
      document.getElementById("fb-login").style.display = "none";
      FB.api(
+       '/me',
+       'GET',
+       {"fields": "name"},
+       function(response){
+         if(response && !response.error){
+           alert("Welcome again " + response.name + "!");
+         }
+       }
+     );
+     FB.api(
        '/379659976120888',
        'GET',
-       {"fields": "id,name,feed"},
+       {"fields": "id,name,feed{created_time,message,attachments}"},
        function(response){
          if(response && !response.error){
            console.log(response);
-           alert("Welcome again " + response.name + "!");
            printPosts(response);
         }
        }
@@ -60,16 +69,25 @@ function statusChangeCallback1(response) {
     console.log("Authenticated");
     FB.api(
       '/379659976120888',
-      {"fields": "id,name,feed"},
+      {"fields": "id,name,feed{created_time,message,attachments}"},
       function(response){
         if(response && !response.error){
           console.log(response);
           var len = response.feed.data.length, posts = "", nam = response.name;
           for(i=0 ; i<len; i++){
-            posts += ("<b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+            if(response.feed.data[i].message){
+              posts += ("<div style="margin: 25 0; border-style: solid;"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+            getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
+            response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
+            + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "</div>");
+            } else {
+            posts += ("<div style="margin: 25 0; border-style: solid;"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
           getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
           response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-          + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "<br>");
+          + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video width="720"
+           height="404" controls><source src="response.feed.data[i].attachments.url" type="video/mp4">Your browser does not support the video tag.</video>"
+          + "</div>");
+          }
           }
           if(posts != posts1){
             document.getElementById("badge").innerHTML = len;
@@ -94,13 +112,22 @@ function printPosts(response){
     document.getElementById("badge").style.display = "inline";
   }
   for(i=0 ; i<len; i++){
-    posts += ("<b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+    if(response.feed.data[i].message){
+      posts += ("<div style="margin: 25 0; border-style: solid;"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+    getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
+    response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
+    + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "</div>");
+    } else {
+    posts += ("<div style="margin: 25 0; border-style: solid;"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
   getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
   response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-  + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "<br>");
+  + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video width="720"
+   height="404" controls><source src="response.feed.data[i].attachments.url" type="video/mp4">Your browser does not support the video tag.</video>"
+  + "</div>");
   }
-  posts1 += posts;
-  document.getElementById("postfeed").innerHTML = "<h2>Recent Post feed :</h2><br>" + posts;
+  }
+    posts1 += posts;
+    document.getElementById("postfeed").innerHTML = "<h2>Recent Post feed :</h2><br>" + posts;
 }
 
 function getMonth(month){
