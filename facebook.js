@@ -39,8 +39,9 @@ window.fbAsyncInit = function() {
      document.getElementById("login_text").style.display = "none";
      document.getElementById("fb-login").style.display = "none";
      FB.api(
-       '/me',
-       {"fields": "id,name,feed{message,attachments,story,created_time}"},
+       '/379659976120888',
+       'GET',
+       {"fields": "id,name,feed"},
        function(response){
          if(response && !response.error){
            console.log(response);
@@ -58,8 +59,8 @@ function statusChangeCallback1(response) {
   if(response.status === "connected"){
     console.log("Authenticated");
     FB.api(
-      '/me',
-      {"fields": "id,name,feed{message,attachments,story,created_time}"},
+      '/379659976120888',
+      {"fields": "id,name,feed"},
       function(response){
         if(response && !response.error){
           console.log(response);

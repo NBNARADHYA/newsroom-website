@@ -36,8 +36,9 @@ window.fbAsyncInit = function() {
      document.getElementById("log-out").style.display = "inline";
      console.log("Authenticated");
      FB.api(
-       '/me',
-       {"fields": "id,name,feed{message,attachments,story,created_time}"},
+       '/379659976120888',
+       'GET',
+       {"fields": "id,name,feed"},
        function(response){
          if(response && !response.error){
            console.log(response);
@@ -54,8 +55,9 @@ window.fbAsyncInit = function() {
    if(response.status === "connected"){
      console.log("Authenticated");
      FB.api(
-       '/me',
-       {"fields": "id,name,feed{message,attachments,story,created_time}"},
+       '/379659976120888',
+       'GET',
+       {"fields": "id,name,feed"},
        function(response){
          if(response && !response.error){
            console.log(response);
