@@ -82,8 +82,7 @@ window.fbAsyncInit = function() {
              posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
            getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
            response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-           + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video width="720"
-            height="404" controls><source src="response.feed.data[i].attachments.url" type="video/mp4">Your browser does not support the video tag.</video>"
+           + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video><source src="response.feed.data[i].attachments.url" type="video/mp4">Your browser does not support the video tag.</video>"
            + "</div>");
            }
            }
@@ -136,8 +135,7 @@ function showRecentPosts(response) {
     posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
   getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
   response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-  + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video width="720"
-   height="404" controls><source src="response.feed.data[i].attachments.url" type="video/mp4">Your browser does not support the video tag.</video>"
+  + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video><source src="response.feed.data[i].attachments.url" type="video/mp4">Your browser does not support the video tag.</video>"
   + "</div>");
   }
   }
