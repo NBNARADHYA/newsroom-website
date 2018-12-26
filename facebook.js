@@ -81,20 +81,26 @@ function statusChangeCallback1(response) {
               div.style.margin = "25px";
               div.style.border = "solid";
               div.style.padding = "25px";
-              div.innerHTML = "<br><img src="response.picture.data.url"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+              div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
+              var image = document.createElement('img');
+              image.src = response.picture.data.url;
+              div.insertBefore(image , div);
               posts.appendChild(div);
             } else {
               var div = document.createElement('div');
               div.style.margin = "25px";
               div.style.border = "solid";
               div.style.padding = "25px";
-              div.innerHTML = "<br><img src="response.picture.data.url"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+              div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
+              var image = document.createElement('img');
+              image.src = response.picture.data.url;
+              div.insertBefore(image , div);
               posts.appendChild(div);
               var video = document.createElement('div');
               video.style.overflow = "scroll";
@@ -132,20 +138,26 @@ function printPosts(response){
       div.style.margin = "25px";
       div.style.border = "solid";
       div.style.padding = "25px";
-      div.innerHTML = "<br><img src="response.picture.data.url"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+      div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
+      var image = document.createElement('img');
+      image.src = response.picture.data.url;
+      div.insertBefore(image , div);
       posts.appendChild(div);
     } else {
       var div = document.createElement('div');
       div.style.border = "solid";
       div.style.margin = "25px";
       div.style.padding = "25px";
-      div.innerHTML = "<br><img src="response.picture.data.url"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+      div.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
+      var image = document.createElement('img');
+      image.src = response.picture.data.url;
+      div.insertBefore(image , div);
       posts.appendChild(div);
       var video = document.createElement('div');
       video.style.overflow = "scroll";
