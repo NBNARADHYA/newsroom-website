@@ -94,9 +94,9 @@ function statusChangeCallback1(response) {
               posts.appendChild(label);
               var video = document.createElement('div');
               video.classList.add("fb-video");
-              video.setAttribute("data-href" , response.feed.data[i].attachments.data[0].url);
-              video.setAttribute("width" , response.feed.data[i].attachments.data[0].media.image.width);
-              video.setAttribute("height" , response.feed.data[i].attachments.data[0].media.image.height);
+              video.setAttribute("data-href" , "response.feed.data[i].attachments.data[0].url");
+              video.setAttribute("width" , "response.feed.data[i].attachments.data[0].media.image.width");
+              video.setAttribute("height" , "response.feed.data[i].attachments.data[0].media.image.height");
               video.setAttribute("data-allowfullscreen" , "true");
               video.setAttribute("data-autoplay" , "true");
               video.setAttribute("data-show-captions" , "true");
@@ -146,9 +146,9 @@ function printPosts(response){
       posts.appendChild(label);
       var video = document.createElement('div');
       video.classList.add("fb-video");
-      video.setAttribute("data-href" , response.feed.data[i].attachments.data[0].url);
-      video.setAttribute("width" , response.feed.data[i].attachments.data[0].media.image.width);
-      video.setAttribute("height" , response.feed.data[i].attachments.data[0].media.image.height);
+      video.setAttribute("data-href" , "response.feed.data[i].attachments.data[0].url");
+      video.setAttribute("width" , "response.feed.data[i].attachments.data[0].media.image.width");
+      video.setAttribute("height" , "response.feed.data[i].attachments.data[0].media.image.height");
       video.setAttribute("data-allowfullscreen" , "true");
       video.setAttribute("data-autoplay" , "true");
       video.setAttribute("data-show-captions" , "true");
