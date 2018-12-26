@@ -76,12 +76,12 @@ function statusChangeCallback1(response) {
           var len = response.feed.data.length, posts = "", nam = response.name;
           for(i=0 ; i<len; i++){
             if(response.feed.data[i].message){
-              posts += ("<div style="margin: 25 0; border-style: solid;"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+              posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
             getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
             response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
             + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "</div>");
             } else {
-            posts += ("<div style="margin: 25 0; border-style: solid;"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+            posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
           getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
           response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
           + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video width="720"
@@ -113,12 +113,12 @@ function printPosts(response){
   }
   for(i=0 ; i<len; i++){
     if(response.feed.data[i].message){
-      posts += ("<div style="margin: 25 0; border-style: solid;"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+      posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
     getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
     response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
     + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "</div>");
     } else {
-    posts += ("<div style="margin: 25 0; border-style: solid;"><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+    posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
   getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
   response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
   + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video width="720"
