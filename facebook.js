@@ -92,7 +92,7 @@ function statusChangeCallback1(response) {
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
               posts.appendChild(label);
-              var video = document.createElement('div');
+      //        var video = document.createElement('div');
               let video = '<div class="fb-video" data-href="https://www.facebook.com/FacebookDevelopers/posts/10151471074398553" data-width="500" data-allowfullscreen="true" data-autoplay="true" data-show-captions="true"></div>';
   /*            video.classList.add("fb-video");
               video.setAttribute("data-href" , "https://www.facebook.com/379659976120888/videos/1226228857553051/");
