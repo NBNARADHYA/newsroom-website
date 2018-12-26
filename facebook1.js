@@ -99,7 +99,7 @@ window.fbAsyncInit = function() {
  }
 
 function showRecentPosts(response) {
-  var len = response.feed.data.length, posts = "";
+  var len = response.feed.data.length, posts = "", nam = response.name;
   if(len){
     document.getElementById("badge").innerHTML = len;
     document.getElementById("recent_posts").style.display = "inline";
