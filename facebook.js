@@ -82,7 +82,7 @@ function statusChangeCallback1(response) {
               div.style.border = "solid";
               div.style.padding = "25px";
               var label = document.createElement('label');
-              label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+              label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
@@ -97,7 +97,7 @@ function statusChangeCallback1(response) {
               div.style.border = "solid";
               div.style.padding = "25px";
               var label = document.createElement('label');
-              label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+              label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
@@ -108,9 +108,9 @@ function statusChangeCallback1(response) {
               posts.appendChild(div);
               var video = document.createElement('div');
               video.style.overflow = "scroll";
-              video.innerHTML = '<div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if(d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v3.2"; fjs.parentNode.insertBefore(js, fjs);  }(document, "script", "facebook-jssdk"));</script><div class="fb-video" data-href="https://www.facebook.com/379659976120888/videos/1226228857553051/" data-width="500" data-show-text="false"></div>';
+              video.innerHTML = '<div id="fb-root"></div><scr' + 'ipt>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if(d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v3.2"; fjs.parentNode.insertBefore(js, fjs);  }(document, "script", "facebook-jssdk"));</scr' + 'ipt><div class="fb-video" data-href="https://www.facebook.com/379659976120888/videos/1226228857553051/" data-width="500" data-show-text="false"></div>';
               posts.appendChild(video);
-          }
+           }
           }
           if(posts != posts1){
             document.getElementById("badge").innerHTML = len;
@@ -143,7 +143,7 @@ function printPosts(response){
       div.style.border = "solid";
       div.style.padding = "25px";
       var label = document.createElement('label');
-      label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+      label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
@@ -158,7 +158,7 @@ function printPosts(response){
       div.style.margin = "25px";
       div.style.padding = "25px";
       var label = document.createElement('label');
-      label.innerHTML = "<br><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+      label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
@@ -169,9 +169,9 @@ function printPosts(response){
       posts.appendChild(div);
       var video = document.createElement('div');
       video.style.overflow = "scroll";
-      video.innerHTML = '<div id="fb-root"></div><script>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if(d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v3.2"; fjs.parentNode.insertBefore(js, fjs);  }(document, "script", "facebook-jssdk"));</script><div class="fb-video" data-href="https://www.facebook.com/379659976120888/videos/1226228857553051/" data-width="500" data-show-text="false"></div>';
+      video.innerHTML = '<div id="fb-root"></div><scr' + 'ipt>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if(d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v3.2"; fjs.parentNode.insertBefore(js, fjs);  }(document, "script", "facebook-jssdk"));</scr' + 'ipt><div class="fb-video" data-href="https://www.facebook.com/379659976120888/videos/1226228857553051/" data-width="500" data-show-text="false"></div>';
       posts.appendChild(video);
-  }
+   }
   }
     posts1 += posts;
     document.getElementById("postfeed").innerHTML = "<h2>Recent Post feed :</h2><br>";
