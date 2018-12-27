@@ -108,7 +108,7 @@ function statusChangeCallback1(response) {
               posts.appendChild(div);
               var video = document.createElement('div');
               video.style.overflow = "scroll";
-              video.innerHTML = '<div id="fb-root"></div><scr' + 'ipt>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if(d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v3.2"; fjs.parentNode.insertBefore(js, fjs);  }(document, "script", "facebook-jssdk"));</scr' + 'ipt><div class="fb-video" data-href="https://www.facebook.com/379659976120888/videos/1226228857553051/" data-width="500" data-show-text="false"></div>';
+              video.innerHTML = "<div class='fb-video' data-href='https://www.facebook.com/379659976120888/videos/1226228857553051/' data-width='500' data-show-text='false'></div>";
               posts.appendChild(video);
            }
           }
@@ -169,7 +169,7 @@ function printPosts(response){
       posts.appendChild(div);
       var video = document.createElement('div');
       video.style.overflow = "scroll";
-      video.innerHTML = '<div id="fb-root"></div><scr' + 'ipt>(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if(d.getElementById(id)) return;  js = d.createElement(s); js.id = id;  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v3.2"; fjs.parentNode.insertBefore(js, fjs);  }(document, "script", "facebook-jssdk"));</scr' + 'ipt><div class="fb-video" data-href="https://www.facebook.com/379659976120888/videos/1226228857553051/" data-width="500" data-show-text="false"></div>';
+      video.innerHTML = "<div class='fb-video' data-href='https://www.facebook.com/379659976120888/videos/1226228857553051/' data-width='500' data-show-text='false'></div>";
       posts.appendChild(video);
    }
   }
