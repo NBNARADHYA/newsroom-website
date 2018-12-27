@@ -107,7 +107,9 @@ function statusChangeCallback1(response) {
               div.insertBefore(image , div);
               posts.appendChild(div);
               var video = '<div class="fb-video" data-href="https://www.facebook.com/379659976120888/videos/1226228857553051/" data-width="500" data-show-text="false">';
-              posts.appendChild(video);
+              var temp = document.createElement('label');
+              temp.innerHTML = video;
+              posts.appendChild(temp);
            }
           }
           if(posts != posts1){
@@ -166,7 +168,9 @@ function printPosts(response){
       div.insertBefore(image , label);
       posts.appendChild(div);
       var video = '<div class="fb-video" data-href="https://www.facebook.com/379659976120888/videos/1226228857553051/" data-width="500" data-show-text="false">';
-      posts.appendChild(video);
+      var temp = document.createElement('label');
+      temp.innerHTML = video;
+      posts.appendChild(temp);
    }
   }
     posts1 += posts;
