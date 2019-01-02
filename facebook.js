@@ -107,7 +107,7 @@ function statusChangeCallback1(response) {
               div.insertBefore(image , div);
               const video = document.createElement('iframe');
               video.src = response.feed.data[i].attachments.data[0].url;
-              video.width = "510";
+              video.width = "590";
               video.height = "360";
               video.style.border = "none";
               video.style.overflow = "visible";
@@ -182,7 +182,7 @@ function printPosts(response){
       const video = document.createElement('iframe');
       console.log(response.feed.data[i].attachments.data[0].url);
       video.src = response.feed.data[i].attachments.data[0].url;
-      video.width = "510";
+      video.width = "590";
       video.height = "360";
       video.style.border = "none";
       video.style.overflow = "visible";
