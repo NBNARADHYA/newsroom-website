@@ -108,7 +108,7 @@ function statusChangeCallback1(response) {
               var video = document.createElement('iframe');
               video.src = response.feed.data[i].attachments.data[0].url;
               video.width = "750";
-              video.height = "280";
+              video.height = "350";
               video.style.border = "none";
               video.style.overflow = "hidden";
               video.scrolling = "no";
@@ -182,7 +182,7 @@ function printPosts(response){
       console.log(response.feed.data[i].attachments.data[0].url);
       video.src = response.feed.data[i].attachments.data[0].url;
       video.width = "750";
-      video.height = "280";
+      video.height = "350";
       video.style.border = "none";
       video.style.overflow = "hidden";
       video.scrolling = "no";
