@@ -106,7 +106,7 @@ function statusChangeCallback1(response) {
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
               var vid_id = response.feed.data[i].attachments.url;
-              let video = '<iframe src="vid_url" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
+              let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
               var temp = document.createElement('label');
               temp.innerHTML = video;
               div.appendChild(temp);
@@ -168,7 +168,7 @@ function printPosts(response){
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
       var vid_url = response.feed.data[i].attachments.url;
-      let video = '<iframe src="vid_url" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
+      let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
       var temp = document.createElement('label');
       temp.innerHTML = video;
       div.appendChild(temp);
