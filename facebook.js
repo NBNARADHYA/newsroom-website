@@ -105,7 +105,7 @@ function statusChangeCallback1(response) {
               var image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
-              let video = '<div class="fb-video"></div>';
+              let video = '<div id="fb-root"></div><div class="fb-video"></div>';
               var temp = document.createElement('label');
               temp.innerHTML = video;
             //  var video = document.createElement('iframe');
@@ -182,7 +182,7 @@ function printPosts(response){
       var image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
-      let video = '<div class="fb-video"></div>';
+      let video = '<div id="fb-root"></div><div class="fb-video"></div>';
       var temp = document.createElement('label');
       temp.innerHTML = video;
   //   var video = document.createElement('iframe');
