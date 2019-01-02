@@ -106,7 +106,7 @@ function statusChangeCallback1(response) {
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
               var vid_id = response.feed.data[i].attachments.data[0].target.id;
-              let video = '<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F1226228857553051%2F&width=500&show_text=false&appId=359151004888978&height=280" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
+              let video = '<iframe src="https://www.facebook.com/video/embed?video_id=1226228857553051" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
               var temp = document.createElement('label');
               temp.innerHTML = video;
               div.appendChild(temp);
@@ -168,7 +168,7 @@ function printPosts(response){
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
       var vid_id = response.feed.data[i].attachments.data[0].target.id;
-      let video = '<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F1226228857553051%2F&width=500&show_text=false&appId=359151004888978&height=280" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
+      let video = '<iframe src="https://www.facebook.com/video/embed?video_id=1226228857553051" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
       var temp = document.createElement('label');
       temp.innerHTML = video;
       div.appendChild(temp);
