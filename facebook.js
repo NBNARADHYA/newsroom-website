@@ -105,11 +105,21 @@ function statusChangeCallback1(response) {
               var image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
-              var vid_id = response.feed.data[i].attachments.url;
-              let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
-              var temp = document.createElement('label');
-              temp.innerHTML = video;
-              div.appendChild(temp);
+              video.src = response.feed.data[i].attachments.url;
+              video.width = "750";
+              video.height = "280";
+              video.style.border = "none";
+              video.style.overflow = "hidden";
+              video.scrolling = "no";
+              video.frameborder = "0";
+              video.allowTransparency = "true";
+              video.allow = "encrypted-media";
+              video.allowFullScreen = "true";
+            //  var vid_id = response.feed.data[i].attachments.url;
+              //let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
+              //var temp = document.createElement('label');
+              //temp.innerHTML = video;
+              div.appendChild(video);
               posts.appendChild(div);
            }
           }
@@ -167,11 +177,22 @@ function printPosts(response){
       var image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
-      var vid_url = response.feed.data[i].attachments.url;
-      let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
-      var temp = document.createElement('label');
-      temp.innerHTML = video;
-      div.appendChild(temp);
+      var video = createElement('iframe');
+      video.src = response.feed.data[i].attachments.url;
+      video.width = "750";
+      video.height = "280";
+      video.style.border = "none";
+      video.style.overflow = "hidden";
+      video.scrolling = "no";
+      video.frameborder = "0";
+      video.allowTransparency = "true";
+      video.allow = "encrypted-media";
+      video.allowFullScreen = "true";
+    //  var vid_url = response.feed.data[i].attachments.url;
+      //let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
+    //  var temp = document.createElement('label');
+    //  temp.innerHTML = video;
+      div.appendChild(video);
       posts.appendChild(div);
    }
   }
