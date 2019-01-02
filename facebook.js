@@ -100,19 +100,17 @@ function statusChangeCallback1(response) {
               label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-              + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
+              + " " + response.feed.data[i].created_time.substr(0,4) + "<br>";
               div.appendChild(label);
               var image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
               var video = document.createElement('iframe');
               video.src = response.feed.data[i].attachments.data[0].url;
-              video.width = "750";
-              video.height = "350";
-              video.style.border = "none";
+              video.width = "500";
+              video.height = "280";
+            //  video.style.border = "none";
               video.style.overflow = "hidden";
-              video.scrolling = "no";
-              video.frameborder = "0";
               video.allowTransparency = "true";
               video.allow = "encrypted-media";
               video.allowFullScreen = "true";
@@ -121,6 +119,9 @@ function statusChangeCallback1(response) {
               //var temp = document.createElement('label');
               //temp.innerHTML = video;
               div.appendChild(video);
+              var label1 = document.createElement('label');
+              label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
+              div.appendChild(label1);
               posts.appendChild(div);
            }
           }
@@ -173,7 +174,7 @@ function printPosts(response){
       label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-      + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
+      + " " + response.feed.data[i].created_time.substr(0,4) + "<br>";
       div.appendChild(label);
       var image = document.createElement('img');
       image.src = response.picture.data.url;
@@ -181,12 +182,10 @@ function printPosts(response){
       var video = document.createElement('iframe');
       console.log(response.feed.data[i].attachments.data[0].url);
       video.src = response.feed.data[i].attachments.data[0].url;
-      video.width = "750";
-      video.height = "350";
-      video.style.border = "none";
+      video.width = "500";
+      video.height = "280";
+  //    video.style.border = "none";
       video.style.overflow = "hidden";
-      video.scrolling = "no";
-      video.frameborder = "0";
       video.allowTransparency = "true";
       video.allow = "encrypted-media";
       video.allowFullScreen = "true";
@@ -195,6 +194,9 @@ function printPosts(response){
     //  var temp = document.createElement('label');
     //  temp.innerHTML = video;
       div.appendChild(video);
+      var label1 = document.createElement('label');
+      label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
+      div.appendChild(label1);
       posts.appendChild(div);
    }
   }
