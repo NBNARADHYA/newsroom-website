@@ -105,6 +105,7 @@ function statusChangeCallback1(response) {
               var image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
+              var video = document.createElement('iframe');
               video.src = response.feed.data[i].attachments.url;
               video.width = "750";
               video.height = "280";
@@ -177,7 +178,7 @@ function printPosts(response){
       var image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
-      var video = createElement('iframe');
+      var video = document.createElement('iframe');
       video.src = response.feed.data[i].attachments.url;
       video.width = "750";
       video.height = "280";
