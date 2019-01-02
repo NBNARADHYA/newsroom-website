@@ -105,11 +105,11 @@ function statusChangeCallback1(response) {
               var image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
-              posts.appendChild(div);
               let video = '<iframe src="https://www.facebook.com/379659976120888/videos/1226228857553051/" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
               var temp = document.createElement('label');
               temp.innerHTML = video;
-              posts.appendChild(temp);
+              div.appendChild(temp);
+              posts.appendChild(div);
            }
           }
           if(posts != posts1){
@@ -166,11 +166,11 @@ function printPosts(response){
       var image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
-      posts.appendChild(div);
       let video = '<iframe src="https://www.facebook.com/379659976120888/videos/1226228857553051/" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
       var temp = document.createElement('label');
       temp.innerHTML = video;
-      posts.appendChild(temp);
+      div.appendChild(temp);
+      posts.appendChild(div);
    }
   }
     posts1 += posts;
