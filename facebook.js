@@ -105,7 +105,8 @@ function statusChangeCallback1(response) {
               var image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
-              let video = '<iframe src="https://www.facebook.com/379659976120888/videos/1226228857553051/" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
+              var vid_id = response.feed.data[i].attachments.data[0].target.id;
+              let video = '<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2Fvid_id%2F&width=500&show_text=false&appId=359151004888978&height=280" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
               var temp = document.createElement('label');
               temp.innerHTML = video;
               div.appendChild(temp);
@@ -166,7 +167,8 @@ function printPosts(response){
       var image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
-      let video = '<iframe src="https://www.facebook.com/379659976120888/videos/1226228857553051/" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
+      var vid_id = response.feed.data[i].attachments.data[0].target.id;
+      let video = '<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2Fvid_id%2F&width=500&show_text=false&appId=359151004888978&height=280" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
       var temp = document.createElement('label');
       temp.innerHTML = video;
       div.appendChild(temp);
