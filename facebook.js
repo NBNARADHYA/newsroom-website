@@ -105,8 +105,9 @@ function statusChangeCallback1(response) {
               var image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
-              var video = document.createElement('label');
-              video.innerHTML = '<div class="fb-video"></div>';
+              let video = '<div class="fb-video"></div>';
+              var temp = document.createElement('label');
+              temp.innerHTML = video;
             //  var video = document.createElement('iframe');
             //  video.src = response.feed.data[i].attachments.data[0].url;
             //  video.width = "500";
@@ -120,7 +121,7 @@ function statusChangeCallback1(response) {
               //let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
               //var temp = document.createElement('label');
               //temp.innerHTML = video;
-              div.appendChild(video);
+              div.appendChild(temp);
               var label1 = document.createElement('label');
               label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
               div.appendChild(label1);
@@ -181,8 +182,9 @@ function printPosts(response){
       var image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
-      var video = document.createElement('label');
-      video.innerHTML = '<div class="fb-video"></div>';
+      let video = '<div class="fb-video"></div>';
+      var temp = document.createElement('label');
+      temp.innerHTML = video;
   //   var video = document.createElement('iframe');
   //    console.log(response.feed.data[i].attachments.data[0].url);
     //  video.src = response.feed.data[i].attachments.data[0].url;
@@ -197,7 +199,7 @@ function printPosts(response){
       //let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
     //  var temp = document.createElement('label');
     //  temp.innerHTML = video;
-      div.appendChild(video);
+      div.appendChild(temp);
       var label1 = document.createElement('label');
       label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
       div.appendChild(label1);
