@@ -107,10 +107,10 @@ function statusChangeCallback1(response) {
               div.insertBefore(image , div);
               const video = document.createElement('iframe');
               video.src = response.feed.data[i].attachments.data[0].url;
-              video.width = "100%";
-              video.height = "100%";
+              video.width = "70%";
+              video.height = "360";
               video.style.border = "none";
-              //    video.style.overflow = "hidden";
+              video.style.overflow = "visible";
               video.allowTransparency = "true";
               video.allow = "encrypted-media";
               video.allowFullScreen = "true";
@@ -182,10 +182,10 @@ function printPosts(response){
       const video = document.createElement('iframe');
       console.log(response.feed.data[i].attachments.data[0].url);
       video.src = response.feed.data[i].attachments.data[0].url;
-      video.width = "100%";
-      video.height = "100%";
+      video.width = "70%";
+      video.height = "360";
       video.style.border = "none";
-  //    video.style.overflow = "hidden";
+      video.style.overflow = "visible";
       video.allowTransparency = "true";
       video.allow = "encrypted-media";
       video.allowFullScreen = "true";
