@@ -105,8 +105,8 @@ function statusChangeCallback1(response) {
               var image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
-              var vid_id = response.feed.data[i].attachments.data[0].target.id;
-              let video = '<iframe src="https://www.facebook.com/video/embed?video_id=1226228857553051" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
+              var vid_id = response.feed.data[i].attachments.url;
+              let video = '<iframe src="vid_url" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
               var temp = document.createElement('label');
               temp.innerHTML = video;
               div.appendChild(temp);
@@ -167,8 +167,8 @@ function printPosts(response){
       var image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
-      var vid_id = response.feed.data[i].attachments.data[0].target.id;
-      let video = '<iframe src="https://www.facebook.com/video/embed?video_id=1226228857553051" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
+      var vid_url = response.feed.data[i].attachments.url;
+      let video = '<iframe src="vid_url" width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
       var temp = document.createElement('label');
       temp.innerHTML = video;
       div.appendChild(temp);
