@@ -179,6 +179,7 @@ function printPosts(response){
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
       var video = document.createElement('iframe');
+      console.log(response.feed.data[i].attachments.url);
       video.src = response.feed.data[i].attachments.url;
       video.width = "750";
       video.height = "280";
