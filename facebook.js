@@ -106,7 +106,7 @@ function statusChangeCallback1(response) {
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
               const video = document.createElement('iframe');
-              video.src = response.feed.data[i].attachments.data[j].url;
+              video.src = response.feed.data[i].attachments.data[0].url;
               video.width = "590";
               video.height = "400";
               video.style.border = "none";
@@ -116,7 +116,7 @@ function statusChangeCallback1(response) {
               video.allowFullScreen = "true";
               div.appendChild(video);
               const label1 = document.createElement('label');
-              label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[j].title + "<br>";
+              label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
               div.appendChild(label1);
             //  var vid_id = response.feed.data[i].attachments.url;
               //let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
@@ -217,7 +217,7 @@ function printPosts(response){
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
       const video = document.createElement('iframe');
-      video.src = response.feed.data[i].attachments.data[j].url;
+      video.src = response.feed.data[i].attachments.data[0].url;
       video.width = "590";
       video.height = "400";
       video.style.border = "none";
@@ -227,7 +227,7 @@ function printPosts(response){
       video.allowFullScreen = "true";
       div.appendChild(video);
       const label1 = document.createElement('label');
-      label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[j].title + "<br>";
+      label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
       div.appendChild(label1);
     //  var vid_url = response.feed.data[i].attachments.url;
       //let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
