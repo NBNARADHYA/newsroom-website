@@ -144,17 +144,7 @@ function statusChangeCallback1(response) {
              for (var j = 0; j < len1; j++) {
                const image1 = document.createElement('img');
                image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
-               image1.onmouseover = function(response){
-                 const p = document.createElement('p');
-                 p.innerHTML = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
-                 p.style.position = "absolute";
-                 p.style.top = "50%";
-                 p.style.left = "50%";
-                 p.setAttribute("style" , "background-color: white;");
-                 p.style.padding = "5px";
-                 p.style.color = "black";
-                 image1.appendChild(p);
-               };
+               image1.title = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
                div.appendChild(image1);
                const t = document.createElement('label');
                t.innerHTML = "<br>";
@@ -256,17 +246,7 @@ function printPosts(response){
      for (var j = 0; j < len1; j++) {
        const image1 = document.createElement('img');
        image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
-       image1.onmouseover = function(response){
-         const p = document.createElement('p');
-         p.innerHTML = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
-         p.style.position = "absolute";
-         p.style.top = "50%";
-         p.style.left = "50%";
-         p.setAttribute("style" , "background-color: white;");
-         p.style.padding = "5px";
-         p.style.color = "black";
-         image1.appendChild(p);
-       };
+       image1.title = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
        div.appendChild(image1);
        const t = document.createElement('label');
        t.innerHTML = "<br>";
