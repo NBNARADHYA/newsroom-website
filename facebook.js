@@ -91,7 +91,7 @@ function statusChangeCallback1(response) {
               image.src = response.picture.data.url;
               div.insertBefore(image , label);
               posts.appendChild(div);
-            } else {
+            } else if(!response.feed.data[i].attachments.data[0].subattachments){
               var div = document.createElement('div');
               div.style.margin = "25px";
               div.style.border = "solid";
@@ -105,27 +105,59 @@ function statusChangeCallback1(response) {
               const image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
-              const len1 = response.feed.data[i].attachments.data.length;
-              for (var j = 0; j < len1; j++) {
-                const video = document.createElement('iframe');
-                video.src = response.feed.data[i].attachments.data[j].url;
-                video.width = "590";
-                video.height = "380";
-                video.style.border = "none";
-                video.style.overflow = "visible";
-                video.allowTransparency = "true";
-                video.allow = "encrypted-media";
-                video.allowFullScreen = "true";
-                div.appendChild(video);
-                const label1 = document.createElement('label');
-                label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[j].title + "<br>";
-                div.appendChild(label1);
-              }
+              const video = document.createElement('iframe');
+              video.src = response.feed.data[i].attachments.data[j].url;
+              video.width = "590";
+              video.height = "400";
+              video.style.border = "none";
+              video.style.overflow = "visible";
+              video.allowTransparency = "true";
+              video.allow = "encrypted-media";
+              video.allowFullScreen = "true";
+              div.appendChild(video);
+              const label1 = document.createElement('label');
+              label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[j].title + "<br>";
+              div.appendChild(label1);
             //  var vid_id = response.feed.data[i].attachments.url;
               //let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
               //var temp = document.createElement('label');
               //temp.innerHTML = video;
               posts.appendChild(div);
+           } else {
+             var div = document.createElement('div');
+             div.style.margin = "25px";
+             div.style.border = "solid";
+             div.style.padding = "25px";
+             const label = document.createElement('label');
+             label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+             getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
+             response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
+             + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
+             div.appendChild(label);
+             const image = document.createElement('img');
+             image.src = response.picture.data.url;
+             div.insertBefore(image , label);
+             const label1 = document.createElement('label');
+             label1.innerHTML = "<br>" + response.feed.data[i].title + "<br>";
+             div.appendChild(label1);
+             const len1 = response.feed.data[i].attachments.data[0].subattachments.data.length;
+             for (var j = 0; j < len1; j++) {
+               const image1 = document.createElement('img');
+               image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
+               image1.onmouseover = function(){
+                 const p = document.createElement('p');
+                 p.innerHTML = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
+                 p.style.position = "absolute";
+                 p.style.top = "50%";
+                 p.style.left = "50%";
+                 p.setAttribute("style" , "background-color: white;");
+                 p.style.padding = "5px";
+                 p.style.color = "black";
+                 image1.appendChild(p);
+               };
+               div.appendChild(image1);
+               const t = document.createTextNode("<br>");
+               div.appendChild(t);
            }
           }
           if(posts != posts1){
@@ -168,7 +200,7 @@ function printPosts(response){
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
       posts.appendChild(div);
-    } else {
+    } else if(!response.feed.data[i].attachments.data[0].subattachments){
       var div = document.createElement('div');
       div.style.border = "solid";
       div.style.margin = "25px";
@@ -182,27 +214,60 @@ function printPosts(response){
       const image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
-      const len1 = response.feed.data[i].attachments.data.length;
-      for (var j = 0; j < len1; j++) {
-        const video = document.createElement('iframe');
-        video.src = response.feed.data[i].attachments.data[j].url;
-        video.width = "590";
-        video.height = "380";
-        video.style.border = "none";
-        video.style.overflow = "visible";
-        video.allowTransparency = "true";
-        video.allow = "encrypted-media";
-        video.allowFullScreen = "true";
-        div.appendChild(video);
-        const label1 = document.createElement('label');
-        label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[j].title + "<br>";
-        div.appendChild(label1);
-      }
+      const video = document.createElement('iframe');
+      video.src = response.feed.data[i].attachments.data[j].url;
+      video.width = "590";
+      video.height = "400";
+      video.style.border = "none";
+      video.style.overflow = "visible";
+      video.allowTransparency = "true";
+      video.allow = "encrypted-media";
+      video.allowFullScreen = "true";
+      div.appendChild(video);
+      const label1 = document.createElement('label');
+      label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[j].title + "<br>";
+      div.appendChild(label1);
     //  var vid_url = response.feed.data[i].attachments.url;
       //let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
     //  var temp = document.createElement('label');
     //  temp.innerHTML = video;
       posts.appendChild(div);
+   } else {
+     var div = document.createElement('div');
+     div.style.margin = "25px";
+     div.style.border = "solid";
+     div.style.padding = "25px";
+     const label = document.createElement('label');
+     label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
+     getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
+     response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
+     + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
+     div.appendChild(label);
+     const image = document.createElement('img');
+     image.src = response.picture.data.url;
+     div.insertBefore(image , label);
+     const label1 = document.createElement('label');
+     label1.innerHTML = "<br>" + response.feed.data[i].title + "<br>";
+     div.appendChild(label1);
+     const len1 = response.feed.data[i].attachments.data[0].subattachments.data.length;
+     for (var j = 0; j < len1; j++) {
+       const image1 = document.createElement('img');
+       image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
+       image1.onmouseover = function(){
+         const p = document.createElement('p');
+         p.innerHTML = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
+         p.style.position = "absolute";
+         p.style.top = "50%";
+         p.style.left = "50%";
+         p.setAttribute("style" , "background-color: white;");
+         p.style.padding = "5px";
+         p.style.color = "black";
+         image1.appendChild(p);
+       };
+       div.appendChild(image1);
+       const t = document.createTextNode("<br>");
+       div.appendChild(t);
+     }
    }
   }
     posts1 += posts;
