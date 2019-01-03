@@ -73,7 +73,7 @@ function statusChangeCallback1(response) {
       function(response){
         if(response && !response.error){
           console.log(response);
-          var len = response.feed.data.length, nam = response.name;
+          const len = response.feed.data.length, nam = response.name;
           var posts = document.createElement('div');
           for(i=0 ; i<len; i++){
             if(response.feed.data[i].message){
@@ -81,13 +81,13 @@ function statusChangeCallback1(response) {
               div.style.margin = "25px";
               div.style.border = "solid";
               div.style.padding = "25px";
-              var label = document.createElement('label');
+              const label = document.createElement('label');
               label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
               div.appendChild(label);
-              var image = document.createElement('img');
+              const image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , label);
               posts.appendChild(div);
@@ -96,32 +96,35 @@ function statusChangeCallback1(response) {
               div.style.margin = "25px";
               div.style.border = "solid";
               div.style.padding = "25px";
-              var label = document.createElement('label');
+              const label = document.createElement('label');
               label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>";
               div.appendChild(label);
-              var image = document.createElement('img');
+              const image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
-              const video = document.createElement('iframe');
-              video.src = response.feed.data[i].attachments.data[0].url;
-              video.width = "590";
-              video.height = "360";
-              video.style.border = "none";
-              video.style.overflow = "visible";
-              video.allowTransparency = "true";
-              video.allow = "encrypted-media";
-              video.allowFullScreen = "true";
+              const len1 = response.feed.data[i].attachments.data.length;
+              for (var j = 0; j < len1; j++) {
+                const video = document.createElement('iframe');
+                video.src = response.feed.data[i].attachments.data[j].url;
+                video.width = "590";
+                video.height = "380";
+                video.style.border = "none";
+                video.style.overflow = "visible";
+                video.allowTransparency = "true";
+                video.allow = "encrypted-media";
+                video.allowFullScreen = "true";
+                div.appendChild(video);
+                const label1 = document.createElement('label');
+                label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[j].title + "<br>";
+                div.appendChild(label1);
+              }
             //  var vid_id = response.feed.data[i].attachments.url;
               //let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
               //var temp = document.createElement('label');
               //temp.innerHTML = video;
-              div.appendChild(video);
-              var label1 = document.createElement('label');
-              label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
-              div.appendChild(label1);
               posts.appendChild(div);
            }
           }
@@ -142,7 +145,7 @@ function statusChangeCallback1(response) {
 }
 
 function printPosts(response){
-  var len = response.feed.data.length, nam = response.name;
+  const len = response.feed.data.length, nam = response.name;
   if(len){
     document.getElementById("badge").innerHTML = len;
     document.getElementById("recent_posts").style.display = "inline";
@@ -155,13 +158,13 @@ function printPosts(response){
       div.style.margin = "25px";
       div.style.border = "solid";
       div.style.padding = "25px";
-      var label = document.createElement('label');
+      const label = document.createElement('label');
       label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
       div.appendChild(label);
-      var image = document.createElement('img');
+      const image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
       posts.appendChild(div);
@@ -170,33 +173,35 @@ function printPosts(response){
       div.style.border = "solid";
       div.style.margin = "25px";
       div.style.padding = "25px";
-      var label = document.createElement('label');
+      const label = document.createElement('label');
       label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>";
       div.appendChild(label);
-      var image = document.createElement('img');
+      const image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
-      const video = document.createElement('iframe');
-      console.log(response.feed.data[i].attachments.data[0].url);
-      video.src = response.feed.data[i].attachments.data[0].url;
-      video.width = "590";
-      video.height = "360";
-      video.style.border = "none";
-      video.style.overflow = "visible";
-      video.allowTransparency = "true";
-      video.allow = "encrypted-media";
-      video.allowFullScreen = "true";
+      const len1 = response.feed.data[i].attachments.data.length;
+      for (var j = 0; j < len1; j++) {
+        const video = document.createElement('iframe');
+        video.src = response.feed.data[i].attachments.data[j].url;
+        video.width = "590";
+        video.height = "380";
+        video.style.border = "none";
+        video.style.overflow = "visible";
+        video.allowTransparency = "true";
+        video.allow = "encrypted-media";
+        video.allowFullScreen = "true";
+        div.appendChild(video);
+        const label1 = document.createElement('label');
+        label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[j].title + "<br>";
+        div.appendChild(label1);
+      }
     //  var vid_url = response.feed.data[i].attachments.url;
       //let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
     //  var temp = document.createElement('label');
     //  temp.innerHTML = video;
-      div.appendChild(video);
-      var label1 = document.createElement('label');
-      label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
-      div.appendChild(label1);
       posts.appendChild(div);
    }
   }
