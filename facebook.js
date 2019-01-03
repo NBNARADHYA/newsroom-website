@@ -144,7 +144,7 @@ function statusChangeCallback1(response) {
              for (var j = 0; j < len1; j++) {
                const image1 = document.createElement('img');
                image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
-          /*     image1.onmouseover = function(){
+               image1.onmouseover = function(){
                  const p = document.createElement('p');
                  p.innerHTML = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
                  p.style.position = "absolute";
@@ -154,11 +154,12 @@ function statusChangeCallback1(response) {
                  p.style.padding = "5px";
                  p.style.color = "black";
                  image1.appendChild(p);
-               };*/
+               };
                div.appendChild(image1);
                const t = document.createTextNode("<br>");
                div.appendChild(t);
            }
+           posts.appendChild(div);
           }
           if(posts != posts1){
             document.getElementById("badge").innerHTML = len;
@@ -253,7 +254,7 @@ function printPosts(response){
      for (var j = 0; j < len1; j++) {
        const image1 = document.createElement('img');
        image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
-    /*   image1.onmouseover = function(){
+       image1.onmouseover = function(){
          const p = document.createElement('p');
          p.innerHTML = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
          p.style.position = "absolute";
@@ -263,11 +264,12 @@ function printPosts(response){
          p.style.padding = "5px";
          p.style.color = "black";
          image1.appendChild(p);
-       };*/
+       };
        div.appendChild(image1);
        const t = document.createTextNode("<br>");
        div.appendChild(t);
      }
+     posts.appendChild(div);
    }
   }
     posts1 += posts;
