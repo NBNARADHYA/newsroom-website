@@ -171,6 +171,7 @@ function statusChangeCallback1(response) {
           }
         }
       }
+    }
     );
 } else {
     console.log("Not authenticated");
