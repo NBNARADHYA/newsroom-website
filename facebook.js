@@ -144,7 +144,7 @@ function statusChangeCallback1(response) {
              for (var j = 0; j < len1; j++) {
                const image1 = document.createElement('img');
                image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
-               image1.onmouseover = function(){
+               image1.onmouseover = function(response){
                  const p = document.createElement('p');
                  p.innerHTML = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
                  p.style.position = "absolute";
@@ -156,7 +156,8 @@ function statusChangeCallback1(response) {
                  image1.appendChild(p);
                };
                div.appendChild(image1);
-               const t = document.createTextNode("<br>");
+               const t = document.createElement('label');
+               t.innerHTML = "<br>";
                div.appendChild(t);
            }
            posts.appendChild(div);
@@ -255,7 +256,7 @@ function printPosts(response){
      for (var j = 0; j < len1; j++) {
        const image1 = document.createElement('img');
        image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
-       image1.onmouseover = function(){
+       image1.onmouseover = function(response){
          const p = document.createElement('p');
          p.innerHTML = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
          p.style.position = "absolute";
@@ -267,7 +268,8 @@ function printPosts(response){
          image1.appendChild(p);
        };
        div.appendChild(image1);
-       const t = document.createTextNode("<br>");
+       const t = document.createElement('label');
+       t.innerHTML = "<br>";
        div.appendChild(t);
      }
      posts.appendChild(div);
