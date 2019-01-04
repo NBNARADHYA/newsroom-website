@@ -88,8 +88,14 @@ function statusChangeCallback1(response) {
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
               div.appendChild(label);
               const image = document.createElement('img');
-              image.src = response.picture.data.url;
+              image.src ="";
+              image.setAttribute("data-src" , response.picture.data.url);
               div.insertBefore(image , label);
+              var body = document.getElementsByTagName('body')[0];
+              var script = document.createElement('script');
+              script.type = 'text/javascript';
+              script.src = 'deferVideosAndImages.js';
+              body.appendChild(script);
               posts.appendChild(div);
             } else if(!response.feed.data[i].attachments.data[0].subattachments){
               var div = document.createElement('div');
@@ -147,7 +153,8 @@ function statusChangeCallback1(response) {
              + " " + response.feed.data[i].created_time.substr(0,4);
              div.appendChild(label);
              const image = document.createElement('img');
-             image.src = response.picture.data.url;
+             image.src ="";
+             image.setAttribute("data-src" , response.picture.data.url);
              div.insertBefore(image , label);
              const label1 = document.createElement('label');
              label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
@@ -229,7 +236,8 @@ function printPosts(response){
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>";
       div.appendChild(label);
       const image = document.createElement('img');
-      image.src = response.picture.data.url;
+      image.src ="";
+      image.setAttribute("data-src" , response.picture.data.url);
       div.insertBefore(image , label);
       const video = document.createElement('iframe');
       video.src = "";
@@ -267,7 +275,8 @@ function printPosts(response){
      + " " + response.feed.data[i].created_time.substr(0,4);
      div.appendChild(label);
      const image = document.createElement('img');
-     image.src = response.picture.data.url;
+     image.src ="";
+     image.setAttribute("data-src" , response.picture.data.url);
      div.insertBefore(image , label);
      const label1 = document.createElement('label');
      label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
