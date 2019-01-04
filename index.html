@@ -3,6 +3,7 @@
 <head>
   <title>Newsroom</title>
   <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/gleekbfjekiniecknbkamfmkohkpodhe">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial scale=1">
   <script type="text/javascript" src="cookie.js"></script>
@@ -147,6 +148,7 @@
              scope="public_profile,email"
              onlogin="checkLoginState();">
            </fb:login-button></p>
+           <button onclick="chrome.webstore.install()" id="install-button">Add to Chrome</button>
    <div class="footer"><br>
      <label id="clockbox">
      <script type="text/javascript" src="time.js"></script><br>
@@ -158,5 +160,10 @@
     data-show-faces="true">
   </label>
    </div>
+   <script>
+    if (chrome.app.isInstalled) {
+      document.getElementById('install-button').style.display = 'none';
+    }
+   </script>
  </body>
  </html>
