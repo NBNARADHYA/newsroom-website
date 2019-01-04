@@ -148,7 +148,6 @@
              scope="public_profile,email"
              onlogin="checkLoginState();">
            </fb:login-button></p>
-           <button onclick="chrome.webstore.install()" id="install-button">Add to Chrome</button>
    <div class="footer"><br>
      <label id="clockbox">
      <script type="text/javascript" src="time.js"></script><br>
@@ -161,8 +160,8 @@
   </label>
    </div>
    <script>
-    if (chrome.app.isInstalled) {
-      document.getElementById('install-button').style.display = 'none';
+    if (!chrome.app.isInstalled) {
+      alert("Please install the Ignore Xframe Options Extension from Chrome Webstore");
     }
    </script>
  </body>
