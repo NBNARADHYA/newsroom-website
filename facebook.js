@@ -116,7 +116,7 @@ function statusChangeCallback1(response) {
               video.allow = "encrypted-media";
               video.allowFullScreen = "true";
               div.appendChild(video);
-              var body = document.getElementsByTagName('body');
+              var body = document.getElementsByTagName('body')[0];
               var script = document.createElement('script');
               script.type = 'text/javascript';
               script.src = 'deferVideos.js';
@@ -224,7 +224,7 @@ function printPosts(response){
       video.allow = "encrypted-media";
       video.allowFullScreen = "true";
       div.appendChild(video);
-      var body = document.getElementsByTagName('body');
+      var body = document.getElementsByTagName('body')[0];
       var script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = 'deferVideos.js';
