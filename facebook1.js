@@ -15,11 +15,11 @@ window.fbAsyncInit = function() {
       statusChangeCallback(response);
   });
 
-  setInterval(function(){
+/*  setInterval(function(){
     FB.getLoginStatus(function(response) {
         statusChangeCallback1(response);
     });
-  }, 120000);
+  }, 120000);*/
 
 };
 
@@ -51,45 +51,7 @@ window.fbAsyncInit = function() {
    }
  }
 
- function statusChangeCallback1(response) {
-   if(response.status === "connected"){
-     console.log("Authenticated");
-     FB.api(
-       '/379659976120888',
-       'GET',
-       {"fields": "id,name,feed{created_time,message,attachments}"},
-       function(response){
-         if(response && !response.error){
-           console.log(response);
-           var len = response.feed.data.length, posts = "", nam = response.name;
-           for(i=0 ; i<len; i++){
-             if(response.feed.data[i].message){
-               posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
-             getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
-             response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-             + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "</div>");
-             } else {
-             posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
-           getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
-           response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-           + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video><source src="response.feed.data[i].attachments.url" type="video/mp4">Your browser does not support the video tag.</video>"
-           + "</div>");
-           }
-           }
-           if(posts != posts1){
-             document.getElementById("badge").innerHTML = len;
-             document.getElementById("badge").style.display = "inline";
-             posts1 = posts;
-           } else {
-             document.getElementById("badge").style.display = "none";
-           }
-         }
-       }
-     );
- } else {
-     console.log("Not authenticated");
-   }
- }
+
 
  function getMonth(month){
    switch (month) {
