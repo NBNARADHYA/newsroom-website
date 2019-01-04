@@ -116,6 +116,11 @@ function statusChangeCallback1(response) {
               video.allow = "encrypted-media";
               video.allowFullScreen = "true";
               div.appendChild(video);
+              var body = document.getElementsByTagName('body');
+              var script = document.createElement('script');
+              script.type = 'text/javascript';
+              script.src = 'deferVideos.js';
+              body.appendChild(script);
               const label1 = document.createElement('label');
               label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
               div.appendChild(label1);
@@ -219,6 +224,11 @@ function printPosts(response){
       video.allow = "encrypted-media";
       video.allowFullScreen = "true";
       div.appendChild(video);
+      var body = document.getElementsByTagName('body');
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'deferVideos.js';
+      body.appendChild(script);
       const label1 = document.createElement('label');
       label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
       div.appendChild(label1);
