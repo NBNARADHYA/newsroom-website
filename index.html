@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial scale=1">
   <script type="text/javascript" src="cookie.js"></script>
   <script type="text/javascript" src="facebook.js"></script>
-  <script type="text/javascript" src="extension.js"></script>
   <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
@@ -104,6 +103,11 @@
      float: left;
    }
    </style>
+   <script type="text/javascript">
+     let beacon = document.createElement("div");
+     beacon.classname = browser.runtime.id;
+     document.body.appendChild(beacon);
+   </script>
  </head>
  <body>
    <div id="fb-root"></div>
@@ -160,11 +164,6 @@
     data-show-faces="true">
   </label>
    </div>
-   <script>
-    if (!chrome.app.isInstalled) {
-      alert("Please install the Ignore X-frame Options Extension from Chrome Webstore");
-      window.location.href = "https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe";
-    }
-   </script>
+   <script src="extension.js" charset="utf-8"></script>
  </body>
  </html>
