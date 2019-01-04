@@ -36,16 +36,6 @@ window.fbAsyncInit = function() {
      document.getElementById("log-out").style.display = "inline";
      console.log("Authenticated");
      FB.api(
-       '/me',
-       'GET',
-       {"fields": "name"},
-       function(response){
-         if(response && !response.error){
-           alert("Welcome again " + response.name + "!");
-         }
-       }
-     );
-     FB.api(
        '/379659976120888',
        'GET',
        {"fields": "id,name,feed{created_time,message,attachments}"},
