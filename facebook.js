@@ -103,8 +103,14 @@ function statusChangeCallback1(response) {
               + " " + response.feed.data[i].created_time.substr(0,4) + "<br>";
               div.appendChild(label);
               const image = document.createElement('img');
-              image.src = response.picture.data.url;
+              image.src ="";
+              image.setAttribute("data-src" , response.picture.data.url);
               div.insertBefore(image , div);
+              var body = document.getElementsByTagName('body')[0];
+              var script = document.createElement('script');
+              script.type = 'text/javascript';
+              script.src = 'deferVideosAndImages.js';
+              body.appendChild(script);
               const video = document.createElement('iframe');
               video.src = "";
               video.setAttribute("data-src" , response.feed.data[i].attachments.data[0].url);
@@ -119,7 +125,7 @@ function statusChangeCallback1(response) {
               var body = document.getElementsByTagName('body')[0];
               var script = document.createElement('script');
               script.type = 'text/javascript';
-              script.src = 'deferVideos.js';
+              script.src = 'deferVideosAndImages.js';
               body.appendChild(script);
               const label1 = document.createElement('label');
               label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
@@ -149,13 +155,19 @@ function statusChangeCallback1(response) {
              const len1 = response.feed.data[i].attachments.data[0].subattachments.data.length;
              for (var j = 0; j < len1; j++) {
                const image1 = document.createElement('img');
-               image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
+               image1.src ="";
+               image.setAttribute("data-src" , response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src);
                image1.title = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
                div.appendChild(image1);
                const t = document.createElement('label');
                t.innerHTML = "<br>";
                div.appendChild(t);
            }
+           var body = document.getElementsByTagName('body')[0];
+           var script = document.createElement('script');
+           script.type = 'text/javascript';
+           script.src = 'deferVideosAndImages.js';
+           body.appendChild(script);
            posts.appendChild(div);
           }
           if(posts != posts1){
@@ -196,8 +208,14 @@ function printPosts(response){
       + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
       div.appendChild(label);
       const image = document.createElement('img');
-      image.src = response.picture.data.url;
+      image.src ="";
+      image.setAttribute("data-src" , response.picture.data.url);
       div.insertBefore(image , label);
+      var body = document.getElementsByTagName('body')[0];
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'deferVideosAndImages.js';
+      body.appendChild(script);
       posts.appendChild(div);
     } else if(!response.feed.data[i].attachments.data[0].subattachments){
       var div = document.createElement('div');
@@ -227,7 +245,7 @@ function printPosts(response){
       var body = document.getElementsByTagName('body')[0];
       var script = document.createElement('script');
       script.type = 'text/javascript';
-      script.src = 'deferVideos.js';
+      script.src = 'deferVideosAndImages.js';
       body.appendChild(script);
       const label1 = document.createElement('label');
       label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
@@ -257,13 +275,19 @@ function printPosts(response){
      const len1 = response.feed.data[i].attachments.data[0].subattachments.data.length;
      for (var j = 0; j < len1; j++) {
        const image1 = document.createElement('img');
-       image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
+       image1.src ="";
+       image.setAttribute("data-src" , response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src);
        image1.title = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
        div.appendChild(image1);
        const t = document.createElement('label');
        t.innerHTML = "<br>";
        div.appendChild(t);
      }
+     var body = document.getElementsByTagName('body')[0];
+     var script = document.createElement('script');
+     script.type = 'text/javascript';
+     script.src = 'deferVideosAndImages.js';
+     body.appendChild(script);
      posts.appendChild(div);
    }
   }
