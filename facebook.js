@@ -132,13 +132,13 @@ function statusChangeCallback1(response) {
              label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
              getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
              response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-             + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
+             + " " + response.feed.data[i].created_time.substr(0,4);
              div.appendChild(label);
              const image = document.createElement('img');
              image.src = response.picture.data.url;
              div.insertBefore(image , label);
              const label1 = document.createElement('label');
-             label1.innerHTML = "<br>" + response.feed.data[i].title + "<br>";
+             label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
              div.appendChild(label1);
              const len1 = response.feed.data[i].attachments.data[0].subattachments.data.length;
              for (var j = 0; j < len1; j++) {
@@ -234,13 +234,13 @@ function printPosts(response){
      label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
      getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
      response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-     + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
+     + " " + response.feed.data[i].created_time.substr(0,4);
      div.appendChild(label);
      const image = document.createElement('img');
      image.src = response.picture.data.url;
      div.insertBefore(image , label);
      const label1 = document.createElement('label');
-     label1.innerHTML = "<br>" + response.feed.data[i].title + "<br>";
+     label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
      div.appendChild(label1);
      const len1 = response.feed.data[i].attachments.data[0].subattachments.data.length;
      for (var j = 0; j < len1; j++) {
