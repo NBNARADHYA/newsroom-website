@@ -70,29 +70,7 @@ window.fbAsyncInit = function() {
    }
  }
 
-function showRecentPosts(response) {
-  var len = response.feed.data.length, posts = "", nam = response.name;
-  if(len){
-    document.getElementById("badge").innerHTML = len;
-    document.getElementById("recent_posts").style.display = "inline";
-    document.getElementById("badge").style.display = "inline";
-  }
-  for(i=0 ; i<len; i++){
-    if(response.feed.data[i].message){
-      posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
-    getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
-    response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-    + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message + "</div>");
-    } else {
-    posts += ("<div><b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
-  getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
-  response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-  + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].title + "<br>" + "<video><source src="response.feed.data[i].attachments.url" type="video/mp4">Your browser does not support the video tag.</video>"
-  + "</div>");
-  }
-  }
-  posts1 += posts;
-}
+
 
  function log_out() {
    FB.logout(function(response){
