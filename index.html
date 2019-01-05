@@ -14,8 +14,10 @@
     var result = detect.parse(navigator.userAgent);
     if(result.browser.family === "Chrome"){
       alert("Please install Ignore X-Frame headers Chrome Extension if not installed!");
+      window.open("https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe");
     } else if (result.browser.family === "Firefox") {
       alert("Please install Ignore X-Frame-Options Header Firefox Extension if not installed!");
+      window.open("https://addons.mozilla.org/en-US/firefox/addon/ignore-x-frame-options-header/");
     }
   </script>
   <script type="text/javascript">
