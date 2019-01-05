@@ -3,7 +3,6 @@
 <head>
   <title>Newsroom</title>
   <link rel="shortcut icon" href="favicon.ico" />
-  <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/gleekbfjekiniecknbkamfmkohkpodhe">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial scale=1">
   <script type="text/javascript" src="facebook.js"></script>
@@ -13,14 +12,10 @@
       window.open("https://www.iitism.ac.in/");
     }
     var result = detect.parse(navigator.userAgent);
-    console.log(chrome.app.isInstalled);
-    if(result.browser.family !== "Chrome"){
-      alert("For best website experience use Chrome!");
-    } else {
-      if (!chrome.app.isInstalled) {
-        alert("Please install Ignore X-Frame headers Extension!");
-        window.location.href = "https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe";
-      }
+    if(result.browser.family === "Chrome"){
+      alert("Please install Ignore X-Frame headers Chrome Extension if not installed!");
+    } else if (result.browser.family === "Firefox") {
+      alert("Please install Ignore X-Frame-Options Header Firefox Extension if not installed!");
     }
   </script>
   <script type="text/javascript">
