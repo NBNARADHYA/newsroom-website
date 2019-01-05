@@ -225,7 +225,8 @@ function printPosts(response){
       video.allowFullScreen = "true";
       div.appendChild(video);*/
       const video = document.createElement('div');
-      video.innerHTML = '<div class="fb-video" data-href="https://www.facebook.com/facebook/videos/10153231379946729/" data-width="500" data-show-text="false"></div>';
+      video.innerHTML = '<div class="fb-video" data-width="500" data-show-text="false"></div>';
+      video.setAttribute("data-href" , response.feed.data[i].attachments.data[0].url);
       div.appendChild(video);
       FB.XFBML.parse(video);
       var body = document.getElementsByTagName('body')[0];
