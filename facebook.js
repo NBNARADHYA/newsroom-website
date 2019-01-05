@@ -213,7 +213,7 @@ function printPosts(response){
       const image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
-      const video = document.createElement('iframe');
+    /*  const video = document.createElement('iframe');
       video.src = "";
       video.setAttribute("data-src" , response.feed.data[i].attachments.data[0].url);
       video.width = "590";
@@ -223,7 +223,10 @@ function printPosts(response){
       video.allowTransparency = "true";
       video.allow = "encrypted-media";
       video.allowFullScreen = "true";
-      div.appendChild(video);
+      div.appendChild(video);*/
+      const video = document.createElement('div');
+      video.innerHTML = '<div class="fb-video" data-href="https://www.facebook.com/facebook/videos/10153231379946729/" data-width="500" data-show-text="false"></div>';
+      FB.XFBML.parse(video);
       var body = document.getElementsByTagName('body')[0];
       var script = document.createElement('script');
       script.type = 'text/javascript';
