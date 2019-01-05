@@ -6,8 +6,21 @@
   <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/gleekbfjekiniecknbkamfmkohkpodhe">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial scale=1">
-  <script type="text/javascript" src="cookie.js"></script>
   <script type="text/javascript" src="facebook.js"></script>
+  <script type="text/javascript">
+    function gotToIITISM() {
+      window.open("https://www.iitism.ac.in/");
+    }
+    var isChrome = !!window.chrome && !!window.chrome.webstore;
+    if(!isChrome){
+      alert("For best website experience use Chrome!");
+    } else {
+      if (!chrome.app.isInstalled) {
+        alert("Please install Ignore X-Frame headers Extension!");
+        window.location.href = "https://chrome.google.com/webstore/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe";
+      }
+    }
+  </script>
   <script type="text/javascript">
   function googleTranslateElementInit() {
     new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
@@ -104,7 +117,7 @@
    }
    </style>
    <script type="text/javascript">
-     alert("Please install an Ignore i-frame options Extension if not installed!");
+     alert("Please install an Ignore X-frame options Extension if not installed!");
    </script>
  </head>
  <body>
@@ -122,7 +135,7 @@
    </div>
    <div class="nav_bar" id="nav_bar">
      <a href="index.html"><i class="fa fa-home"></i> Home</a>
-     <a href="https://www.iitism.ac.in/">IIT(ISM) Dhanbad</a>
+     <a href="#" onclick="gotToIITISM();">IIT(ISM) Dhanbad</a>
      <a href="#" id="recent_posts">Recent Posts<span class="badge" id="badge"></span></a>
      <div id="google_translate_element" class="google_translate_element"></div>
      <a href="#" id="log-out" onclick="log_out()">Log Out</a>
