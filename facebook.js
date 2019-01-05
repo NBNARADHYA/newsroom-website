@@ -224,11 +224,15 @@ function printPosts(response){
       video.allow = "encrypted-media";
       video.allowFullScreen = "true";
       div.appendChild(video);*/
-      const video = document.createElement('div');
-      video.innerHTML = '<div class="fb-video" data-width="500" data-show-text="false"></div>';
-      video.setAttribute("data-href" , response.feed.data[i].attachments.data[0].url);
+      const video = document.createElement('label');
+      const divv = document.createElement('div');
+      divv.classList.add("fb-video");
+      divv.setAttribute("data-href" , response.feed.data[i].attachments.data[0].url);
+      divv.setAttribute("data-width" , "500");
+      divv.setAttribute("data-show-text" , "false");
+      video.appendChild(divv);
       div.appendChild(video);
-      FB.XFBML.parse(video);
+      FB.XFBML.parse(divv);
       var body = document.getElementsByTagName('body')[0];
       var script = document.createElement('script');
       script.type = 'text/javascript';
