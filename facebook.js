@@ -232,12 +232,12 @@ function printPosts(response){
       divv.setAttribute("data-show-text" , "false");
       video.appendChild(divv);
       div.appendChild(video);
-      FB.XFBML.parse(divv);
-      var body = document.getElementsByTagName('body')[0];
+      FB.XFBML.parse(video);
+  /*    var body = document.getElementsByTagName('body')[0];
       var script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = 'deferVideos.js';
-      body.appendChild(script);
+      body.appendChild(script);*/
       const label1 = document.createElement('label');
       label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
       div.appendChild(label1);
