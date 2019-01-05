@@ -105,7 +105,7 @@ function statusChangeCallback1(response) {
               const image = document.createElement('img');
               image.src = response.picture.data.url;
               div.insertBefore(image , div);
-              const video = document.createElement('iframe');
+          /*    const video = document.createElement('iframe');
               video.src = "";
               video.setAttribute("data-src" , response.feed.data[i].attachments.data[0].url);
               video.width = "590";
@@ -115,7 +115,19 @@ function statusChangeCallback1(response) {
               video.allowTransparency = "true";
               video.allow = "encrypted-media";
               video.allowFullScreen = "true";
+              div.appendChild(video);*/
+              const video = document.createElement('label');
+              const divv = document.createElement('div');
+              divv.classList.add("fb-video");
+              divv.setAttribute("data-href" , response.feed.data[i].attachments.data[0].url);
+              divv.setAttribute("data-width" , "500");
+              divv.setAttribute("data-show-text" , "true");
+              divv.setAttribute("data-allowfullscreen" , "true");
+              divv.setAttribute("data-autoplay" , "ture");
+              divv.setAttribute("data-show-captions" , "ture");
+              video.appendChild(divv);
               div.appendChild(video);
+              FB.XFBML.parse(video);
               var body = document.getElementsByTagName('body')[0];
               var script = document.createElement('script');
               script.type = 'text/javascript';
@@ -229,7 +241,10 @@ function printPosts(response){
       divv.classList.add("fb-video");
       divv.setAttribute("data-href" , response.feed.data[i].attachments.data[0].url);
       divv.setAttribute("data-width" , "500");
-      divv.setAttribute("data-show-text" , "false");
+      divv.setAttribute("data-show-text" , "true");
+      divv.setAttribute("data-allowfullscreen" , "true");
+      divv.setAttribute("data-autoplay" , "ture");
+      divv.setAttribute("data-show-captions" , "ture");
       video.appendChild(divv);
       div.appendChild(video);
       FB.XFBML.parse(video);
