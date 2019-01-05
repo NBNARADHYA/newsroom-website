@@ -226,6 +226,7 @@ function printPosts(response){
       div.appendChild(video);*/
       const video = document.createElement('div');
       video.innerHTML = '<div class="fb-video" data-href="https://www.facebook.com/facebook/videos/10153231379946729/" data-width="500" data-show-text="false"></div>';
+      div.appendChild(video);
       FB.XFBML.parse(video);
       var body = document.getElementsByTagName('body')[0];
       var script = document.createElement('script');
