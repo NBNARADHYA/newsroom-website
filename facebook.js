@@ -2,7 +2,7 @@ var posts1 = "";
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '2259725264303951',
+    appId      : '359151004888978',
     autoLogAppEvents : true,
     cookie     : true,
     xfbml      : true,
