@@ -54,10 +54,10 @@ window.fbAsyncInit = function() {
        'GET',
        {"fields": "id,name,picture,feed{created_time,message,attachments}"},
        function(response){
-  //       if(response && !response.error){
+         if(response && !response.error){
            console.log(response);
            printPosts(response);
-    //    }
+        }
        }
      );
 } else {
@@ -263,6 +263,7 @@ function printPosts(response){
     //  temp.innerHTML = video;
       posts.appendChild(div);
    } else {
+     console.log("hello");
      var div = document.createElement('div');
      div.style.margin = "25px";
      div.style.border = "solid";
