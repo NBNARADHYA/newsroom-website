@@ -1,8 +1,11 @@
-function setCookie(cname,cvalue,exdays) {
+var cookie = "";
+
+function setCookie(exdays) {
   var d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   var expires = "expires=" + d.toGMTString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  cookie += expires + ";path=/";
+  document.cookie = cookie;
 }
 
 function getCookie(cname) {
@@ -21,21 +24,58 @@ function getCookie(cname) {
   return "";
 }
 
-function checkCookie() {
-  var user=getCookie("username");
-  if (user != "") {
-    window.location.href="main.html";
+function checkCookie(name) {
+  var user = getCookie("username");
+  if (user === name && user !== "") {
+    const len = getCookie("length");
+    var pageIdArray = "";
+    for (var i = 0; i < len; i++) {
+      if(i !== len - 1){
+        pageIdArray += getCookie("pageId" + i) + ",";
+      } else {
+        pageIdArray += getCookie("pageId" + i);
+      }
+    }
+    return pageIdArray;
+  } else {
+    document.getElementById("pageSelection").style.display = "block";
+    document.getElementById("postfeed").style.display = "none";
+    cookie += "username=" + name + ";";
   }
 }
 
-function cookieCheck() {
-  var user=document.forms["myForm"]["fname"].value;
-  if (user != "" && user != null) {
-    setCookie("username", user, 30);
+function getPages() {
+  var pages = document.getElementsByClassName("checkboxClass");
+  var len = 0;
+  for (var i = 0; i < pages.length; i++) {
+    if (pages[i].checked) {
+      len ++;
+    }
   }
-  window.location.href="main.html";
+  cookie += "length=" + len + ";";
+  var j = 1;
+  for (var i = 0; i < pages.length; i++) {
+    if (pages[i].checked) {
+      cookie += "pageId" + j + "=" + pages[i].value + ";";
+      j ++;
+    }
+  }
+  setCookie(365);
 }
-/*function doalert() {
-  var user=getCookie("username");
-  alert("Welcome Again " + user);
-}*/
+
+function checkAll(ele) {
+   var checkboxes = document.getElementsByTagName('input');
+   if (ele.checked) {
+       for (var i = 0; i < checkboxes.length; i++) {
+           if (checkboxes[i].type == 'checkbox') {
+               checkboxes[i].checked = true;
+           }
+       }
+   } else {
+       for (var i = 0; i < checkboxes.length; i++) {
+           if (checkboxes[i].type == 'checkbox') {
+               checkboxes[i].checked = false;
+           }
+       }
+   }
+}

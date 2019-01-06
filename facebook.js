@@ -44,12 +44,13 @@ window.fbAsyncInit = function() {
        {"fields": "name"},
        function(response){
          if(response && !response.error){
+           checkCookie(response.name);
            alert("Welcome again " + response.name + "!");
          }
        }
      );
      FB.api(
-       '/379659976120888',
+       '/359429951528331',
        'GET',
        {"fields": "id,name,picture,feed{created_time,message,attachments}"},
        function(response){

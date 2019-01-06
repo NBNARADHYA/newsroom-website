@@ -6,7 +6,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial scale=1">
   <script type="text/javascript" src="facebook.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Detect.js/2.2.2/detect.min.js"></script>
   <script type="text/javascript">
     function gotToIITISM() {
       window.open("https://www.iitism.ac.in/");
@@ -116,6 +115,95 @@
    #clockbox {
      float: left;
    }
+   #myBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      z-index: 99;
+      border: none;
+      outline: none;
+      background-color: #339933;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+    #myBtn:hover {
+      background-color: #595959;
+    }
+   .pageSelection {
+
+   }
+   .selectionContainer {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-color: #eee;
+      float: none;
+    }
+  .selectionContainer input  {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+  .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+    }
+  .selectionContainer:hover  input ~ .checkmark {
+      background-color: #ccc;
+    }
+  .selectionContainer input:checked ~ .checkmark {
+      background-color: #339933;
+    }
+  .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  .selectionContainer input:checked ~ .checkmark:after {
+      display: block;
+    }
+  .selectionContainer .checkmark:after {
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    .submitButton a {
+      background-color: #339933;
+      overflow: hidden;
+      display: block;
+      color: white;
+      padding: 14px 20px;
+      text-align: center;
+      text-decoration: none;
+      float: left;
+    }
+    .submitButton a:hover, .submitButton a:active {
+      background-color: #595959;
+      color: white;
+    }
    </style>
  </head>
  <body>
@@ -153,6 +241,54 @@
        }
      }
    </script>
+   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+   <script type="text/javascript">
+   window.onscroll = function() {scrollFunction()};
+
+   function scrollFunction() {
+     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+       document.getElementById("myBtn").style.display = "block";
+     } else {
+       document.getElementById("myBtn").style.display = "none";
+     }
+   }
+
+   function topFunction() {
+     document.documentElement.scrollTop = 0;
+   }
+   </script>
+   <div class="pageSelection" id="pageSelection">
+     <br>
+     <h2>Please select which all facebook page feed you need:</h2>
+     <label class="selectionContainer">Select All
+      <input type="checkbox" class="checkAllClass" onchange="checkAll(this);">
+      <span class="checkmark"></span>
+    </label>
+     <label class="selectionContainer">Robotics and AI club - IIT Dhanbad @roboism
+      <input type="checkbox" class="checkboxClass" value="406955599369055">
+      <span class="checkmark"></span>
+    </label>
+     <label class="selectionContainer">Mailer Daemon, IIT ISM Dhanbad @MDiitism
+      <input type="checkbox" class="checkboxClass" value="525664164162839">
+      <span class="checkmark"></span>
+    </label>
+     <label class="selectionContainer">IIT ISM Dhanbad ACM Student Chapter @acm.iitismdhn
+      <input type="checkbox" class="checkboxClass" value="463350460433427">
+      <span class="checkmark"></span>
+    </label>
+     <label class="selectionContainer">Astronomy club, IIT-ISM Dhanbad @ARKAiitism
+      <input type="checkbox" class="checkboxClass" value="848791091832268">
+      <span class="checkmark"></span>
+    </label>
+     <label class="selectionContainer">FotoFreaks - The Photography Club Of IIT - ISM @fotofreaks.iitism
+      <input type="checkbox" class="checkboxClass" value="563998677028515">
+      <span class="checkmark"></span>
+    </label>
+     <label class="submitButton">
+       <a href="#" onclick="getPages();">Submit</a>
+     </label>
+     <br><br>
+   </div>
    <div class="main_body">
      <h1 id="hello">Hello!</h1>
      <h2 id="login_text">Login with Facebook to get post feed:</h2>
