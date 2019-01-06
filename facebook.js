@@ -54,10 +54,10 @@ window.fbAsyncInit = function() {
        'GET',
        {"fields": "id,name,picture,feed{created_time,message,attachments}"},
        function(response){
-         if(response && !response.error){
+  //       if(response && !response.error){
            console.log(response);
            printPosts(response);
-        }
+    //    }
        }
      );
 } else {
