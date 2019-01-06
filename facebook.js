@@ -77,7 +77,7 @@ function statusChangeCallback1(response) {
           const len = response.feed.data.length, nam = response.name;
           var posts = document.createElement('div');
           for(i=0 ; i<len; i++){
-            if(response.feed.data[i].attachments.data[0].type === "new_album"){
+            if(response.feed.data[i].attachments && response.feed.data[i].attachments.data[0].type === "new_album"){
               var div = document.createElement('div');
               div.style.margin = "25px";
               div.style.border = "solid";
@@ -111,7 +111,7 @@ function statusChangeCallback1(response) {
                 div.appendChild(t);
               }
               posts.appendChild(div);
-            } else if(response.feed.data[i].attachments.data[0].type === "video_inline"){
+            } else if(response.feed.data[i].attachments && response.feed.data[i].attachments.data[0].type === "video_inline"){
               var div = document.createElement('div');
               div.style.margin = "25px";
               div.style.border = "solid";
@@ -203,7 +203,7 @@ function printPosts(response){
   }
   var posts = document.createElement('div');
   for(i=0 ; i<len; i++){
-    if(response.feed.data[i].attachments.data[0].type === "new_album"){
+    if(response.feed.data[i].attachments && response.feed.data[i].attachments.data[0].type === "new_album"){
       var div = document.createElement('div');
       div.style.margin = "25px";
       div.style.border = "solid";
@@ -237,7 +237,7 @@ function printPosts(response){
         div.appendChild(t);
       }
       posts.appendChild(div);
-    } else if(response.feed.data[i].attachments.data[0].type === "video_inline"){
+    } else if(response.feed.data[i].attachments && response.feed.data[i].attachments.data[0].type === "video_inline"){
       var div = document.createElement('div');
       div.style.margin = "25px";
       div.style.border = "solid";
