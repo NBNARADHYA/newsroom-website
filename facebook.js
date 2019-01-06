@@ -105,7 +105,7 @@ function statusChangeCallback1(response) {
               div.appendChild(label);
               const image = document.createElement('img');
               image.src = response.picture.data.url;
-              div.insertBefore(image , div);
+              div.insertBefore(image , label);
           /*    const video = document.createElement('iframe');
               video.src = "";
               video.setAttribute("data-src" , response.feed.data[i].attachments.data[0].url);
