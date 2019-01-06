@@ -44,7 +44,7 @@ window.fbAsyncInit = function() {
        {"fields": "name"},
        function(response){
          if(response && !response.error){
-           checkCookie(response.name);
+          // checkCookie(response.name);
            alert("Welcome again " + response.name + "!");
          }
        }
