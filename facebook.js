@@ -147,8 +147,8 @@ function statusChangeCallback1(response) {
               divv.setAttribute("data-autoplay" , "ture");
               divv.setAttribute("data-show-captions" , "ture");
               video.appendChild(divv);*/
-              div.appendChild(video);
               FB.XFBML.parse(video);
+              div.appendChild(video);
               var body = document.getElementsByTagName('body')[0];
               var script = document.createElement('script');
               script.type = 'text/javascript';
@@ -274,8 +274,8 @@ function printPosts(response){
       divv.setAttribute("data-autoplay" , "ture");
       divv.setAttribute("data-show-captions" , "ture");
       video.appendChild(divv);*/
-      div.appendChild(video);
       FB.XFBML.parse(video);
+      div.appendChild(video);
       var body = document.getElementsByTagName('body')[0];
       var script = document.createElement('script');
       script.type = 'text/javascript';
