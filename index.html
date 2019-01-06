@@ -227,12 +227,17 @@
      <a href="#" id="log-out" onclick="log_out()">Log Out</a>
      <a href="about_me.html" class="align_right">About Me</a>
    </div>
+   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
    <script type="text/javascript">
-     window.onscroll = function(){
+
+     window.onscroll = function() {
        makeSticky();
+       scrollFunction();
      }
+
      var navbar = document.getElementById("nav_bar");
      var sticky = navbar.offsetTop;
+     
      function makeSticky(){
        if(window.pageYOffset >= sticky){
          navbar.classList.add("sticky");
@@ -240,22 +245,18 @@
          navbar.classList.remove("sticky");
        }
      }
-   </script>
-   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-   <script type="text/javascript">
-   window.onscroll = function() {scrollFunction()};
 
-   function scrollFunction() {
-     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-       document.getElementById("myBtn").style.display = "block";
-     } else {
-       document.getElementById("myBtn").style.display = "none";
+     function scrollFunction() {
+       if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+         document.getElementById("myBtn").style.display = "block";
+       } else {
+         document.getElementById("myBtn").style.display = "none";
+       }
      }
-   }
 
-   function topFunction() {
-     document.documentElement.scrollTop = 0;
-   }
+     function topFunction() {
+       document.documentElement.scrollTop = 0;
+     }
    </script>
    <div class="pageSelection" id="pageSelection">
      <br>
