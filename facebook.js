@@ -289,6 +289,7 @@ function printPosts(response){
       //var temp = document.createElement('label');
       //temp.innerHTML = video;
       posts.appendChild(div);
+      FB.XFBML.parse(posts);
    } else {
      var div = document.createElement('div');
      div.style.margin = "25px";
