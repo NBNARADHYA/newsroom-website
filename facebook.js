@@ -77,7 +77,7 @@ function statusChangeCallback1(response) {
           const len = response.feed.data.length, nam = response.name;
           var posts = document.createElement('div');
           for(i=0 ; i<len; i++){
-            if(response.feed.data[i].message){
+            if(response.feed.data[i].attachments.data[0].type === "new_album"){
               var div = document.createElement('div');
               div.style.margin = "25px";
               div.style.border = "solid";
@@ -86,13 +86,32 @@ function statusChangeCallback1(response) {
               label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
               getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
               response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-              + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
+              + " " + response.feed.data[i].created_time.substr(0,4);
               div.appendChild(label);
               const image = document.createElement('img');
-              image.src = response.picture.data.url;
+              image.src ="";
+              image.setAttribute("data-src" , response.picture.data.url);
               div.insertBefore(image , label);
+              const label1 = document.createElement('label');
+              label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
+              div.appendChild(label1);
+              if(response.feed.data[i].attachments.data[0].description){
+                const label2 = document.createElement('label');
+                label2.innerHTML = response.feed.data[i].attachments.data[0].description + "<br>";
+                div.appendChild(label2);
+              }
+              const len1 = response.feed.data[i].attachments.data[0].subattachments.data.length;
+              for (var j = 0; j < len1; j++) {
+                const image1 = document.createElement('img');
+                image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
+                image1.title = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
+                div.appendChild(image1);
+                const t = document.createElement('label');
+                t.innerHTML = "<br>";
+                div.appendChild(t);
+              }
               posts.appendChild(div);
-            } else if(!response.feed.data[i].attachments.data[0].subattachments){
+            } else if(response.feed.data[i].attachments.data[0].type === "video_inline"){
               var div = document.createElement('div');
               div.style.margin = "25px";
               div.style.border = "solid";
@@ -151,26 +170,12 @@ function statusChangeCallback1(response) {
              label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
              getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
              response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-             + " " + response.feed.data[i].created_time.substr(0,4);
+             + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
              div.appendChild(label);
              const image = document.createElement('img');
-             image.src ="";
-             image.setAttribute("data-src" , response.picture.data.url);
+             image.src = response.picture.data.url;
              div.insertBefore(image , label);
-             const label1 = document.createElement('label');
-             label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
-             div.appendChild(label1);
-             const len1 = response.feed.data[i].attachments.data[0].subattachments.data.length;
-             for (var j = 0; j < len1; j++) {
-               const image1 = document.createElement('img');
-               image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
-               image1.title = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
-               div.appendChild(image1);
-               const t = document.createElement('label');
-               t.innerHTML = "<br>";
-               div.appendChild(t);
-           }
-           posts.appendChild(div);
+             posts.appendChild(div);
           }
           if(posts != posts1){
             document.getElementById("badge").innerHTML = len;
@@ -198,7 +203,7 @@ function printPosts(response){
   }
   var posts = document.createElement('div');
   for(i=0 ; i<len; i++){
-    if(response.feed.data[i].message){
+    if(response.feed.data[i].attachments.data[0].type === "new_album"){
       var div = document.createElement('div');
       div.style.margin = "25px";
       div.style.border = "solid";
@@ -207,15 +212,35 @@ function printPosts(response){
       label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
       getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
       response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-      + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
+      + " " + response.feed.data[i].created_time.substr(0,4);
       div.appendChild(label);
       const image = document.createElement('img');
-      image.src = response.picture.data.url;
+      image.src ="";
+      image.setAttribute("data-src" , response.picture.data.url);
       div.insertBefore(image , label);
-    } else if(!response.feed.data[i].attachments.data[0].subattachments){
+      const label1 = document.createElement('label');
+      label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
+      div.appendChild(label1);
+      if(response.feed.data[i].attachments.data[0].description){
+        const label2 = document.createElement('label');
+        label2.innerHTML = response.feed.data[i].attachments.data[0].description + "<br>";
+        div.appendChild(label2);
+      }
+      const len1 = response.feed.data[i].attachments.data[0].subattachments.data.length;
+      for (var j = 0; j < len1; j++) {
+        const image1 = document.createElement('img');
+        image1.src = response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
+        image1.title = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
+        div.appendChild(image1);
+        const t = document.createElement('label');
+        t.innerHTML = "<br>";
+        div.appendChild(t);
+      }
+      posts.appendChild(div);
+    } else if(response.feed.data[i].attachments.data[0].type === "video_inline"){
       var div = document.createElement('div');
-      div.style.border = "solid";
       div.style.margin = "25px";
+      div.style.border = "solid";
       div.style.padding = "25px";
       const label = document.createElement('label');
       label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
@@ -226,7 +251,7 @@ function printPosts(response){
       const image = document.createElement('img');
       image.src = response.picture.data.url;
       div.insertBefore(image , label);
-    /*  const video = document.createElement('iframe');
+  /*    const video = document.createElement('iframe');
       video.src = "";
       video.setAttribute("data-src" , response.feed.data[i].attachments.data[0].url);
       video.width = "590";
@@ -249,21 +274,20 @@ function printPosts(response){
       video.appendChild(divv);
       div.appendChild(video);
       FB.XFBML.parse(video);
-  /*    var body = document.getElementsByTagName('body')[0];
+      var body = document.getElementsByTagName('body')[0];
       var script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = 'deferVideos.js';
-      body.appendChild(script);*/
+      body.appendChild(script);
       const label1 = document.createElement('label');
       label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
       div.appendChild(label1);
-    //  var vid_url = response.feed.data[i].attachments.url;
+    //  var vid_id = response.feed.data[i].attachments.url;
       //let video = '<iframe src=vid_url width="500" height="280" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>';
-    //  var temp = document.createElement('label');
-    //  temp.innerHTML = video;
+      //var temp = document.createElement('label');
+      //temp.innerHTML = video;
       posts.appendChild(div);
    } else {
-     console.log("hello");
      var div = document.createElement('div');
      div.style.margin = "25px";
      div.style.border = "solid";
@@ -272,26 +296,13 @@ function printPosts(response){
      label.innerHTML = " <b>" + nam + "</b><br>" + response.feed.data[i].created_time.substr(8,2) + " " +
      getMonth(parseInt((response.feed.data[i].created_time.substr(5,1)=='0') ?
      response.feed.data[i].created_time.substr(6,1) : response.feed.data[i].created_time.substr(5,2)))
-     + " " + response.feed.data[i].created_time.substr(0,4);
+     + " " + response.feed.data[i].created_time.substr(0,4) + "<br>" + response.feed.data[i].message;
      div.appendChild(label);
      const image = document.createElement('img');
      image.src = response.picture.data.url;
      div.insertBefore(image , label);
-     const label1 = document.createElement('label');
-     label1.innerHTML = "<br>" + response.feed.data[i].attachments.data[0].title + "<br>";
-     div.appendChild(label1);
-     const len1 = response.feed.data[i].attachments.data[0].subattachments.data.length;
-     for (var j = 0; j < len1; j++) {
-       const image1 = document.createElement('img');
-       image1.src =response.feed.data[i].attachments.data[0].subattachments.data[j].media.image.src;
-       image1.title = response.feed.data[i].attachments.data[0].subattachments.data[j].description;
-       div.appendChild(image1);
-       const t = document.createElement('label');
-       t.innerHTML = "<br>";
-       div.appendChild(t);
-     }
      posts.appendChild(div);
-   }
+  }
   }
     posts1 += posts;
     document.getElementById("postfeed").innerHTML = "<h2>Recent Post feed :</h2><br>";
