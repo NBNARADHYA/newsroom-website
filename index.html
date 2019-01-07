@@ -228,6 +228,26 @@
      <a href="about_me.html" class="align_right">About Me</a>
    </div>
    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <div class="fb-video" data-href="https://www.facebook.com/facebook/videos/10153231379946729/" data-width="500" data-show-text="false">
+    <div class="fb-xfbml-parse-ignore">
+      <blockquote cite="https://www.facebook.com/facebook/videos/10153231379946729/">
+        <a href="https://www.facebook.com/facebook/videos/10153231379946729/">How to Share With Just Friends</a>
+        <p>How to share with just friends.</p>
+        Posted by <a href="https://www.facebook.com/facebook/">Facebook</a> on Friday, December 5, 2014
+      </blockquote>
+    </div>
+  </div>
+
    <script type="text/javascript">
 
      window.onscroll = function() {
@@ -237,7 +257,7 @@
 
      var navbar = document.getElementById("nav_bar");
      var sticky = navbar.offsetTop;
-     
+
      function makeSticky(){
        if(window.pageYOffset >= sticky){
          navbar.classList.add("sticky");
