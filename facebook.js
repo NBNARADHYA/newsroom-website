@@ -429,7 +429,6 @@ function checkCookie(name) {
       document.getElementById("pageSelection").style.display = "none";
       document.getElementById("postfeed").style.display = "block";
     });
-    alert("Welcome " + name + "!" );
     const len = getCookie("length");
     var pageIdArray = "";
     for (var i = 0; i < len; i++) {
