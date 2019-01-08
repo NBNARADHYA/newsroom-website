@@ -46,6 +46,7 @@ window.fbAsyncInit = function() {
        function(response){
          if(response && !response.error){
            var pageIdArray = checkCookie(response.name);
+           console.log(pageIdArray);
          }
        }
      );
@@ -428,7 +429,16 @@ function checkCookie(name) {
       document.getElementById("pageSelection").style.display = "none";
       document.getElementById("postfeed").style.display = "block";
     });
-    return checkCookie(name);
+    const len = getCookie("length");
+    var pageIdArray = "";
+    for (var i = 0; i < len; i++) {
+      if(i !== len - 1){
+        pageIdArray += getCookie("pageId" + i) + ",";
+      } else {
+        pageIdArray += getCookie("pageId" + i);
+      }
+    }
+    return pageIdArray;
   }
 }
 
