@@ -46,7 +46,6 @@ window.fbAsyncInit = function() {
        function(response){
          if(response && !response.error){
            var pageIdArray = checkCookie(response.name);
-           alert("Welcome again " + response.name + "!");
          }
        }
      );
@@ -403,6 +402,7 @@ function checkCookie(name) {
         pageIdArray += getCookie("pageId" + i);
       }
     }
+    alert("Welcome " + name + "!" );
     return pageIdArray;
   } else {
     document.getElementById("pageSelection").style.display = "block";
@@ -428,38 +428,8 @@ function checkCookie(name) {
       document.getElementById("pageSelection").style.display = "none";
       document.getElementById("postfeed").style.display = "block";
     });
-    const len = getCookie("length");
-    var pageIdArray = "";
-    for (var i = 0; i < len; i++) {
-      if(i !== len - 1){
-        pageIdArray += getCookie("pageId" + i) + ",";
-      } else {
-        pageIdArray += getCookie("pageId" + i);
-      }
-    }
-    return pageIdArray;
+    return checkCookie(name);
   }
-}
-
-function getPages() {
-  var pages = document.getElementsByClassName("checkboxClass");
-  var len = 0;
-  for (var i = 0; i < pages.length; i++) {
-    if (pages[i].checked) {
-      len ++;
-    }
-  }
-  cookie += "length=" + len + ";";
-  var j = 1;
-  for (var i = 0; i < pages.length; i++) {
-    if (pages[i].checked) {
-      cookie += "pageId" + j + "=" + pages[i].value + ";";
-      j ++;
-    }
-  }
-  setCookie(365);
-  document.getElementById("pageSelection").style.display = "none";
-  document.getElementById("postfeed").style.display = "block";
 }
 
 function checkAll(ele) {
