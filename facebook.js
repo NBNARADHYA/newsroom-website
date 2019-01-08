@@ -1,5 +1,5 @@
 var posts1 = "";
-
+var loginStatus = "";
 window.fbAsyncInit = function() {
   FB.init({
     appId      : '359151004888978',
@@ -33,6 +33,7 @@ window.fbAsyncInit = function() {
 
  function statusChangeCallback(response){
    if(response.status === "connected"){
+     loginStatus = "loggedIn";
      console.log("Authenticated Hello");
      document.getElementById("log-out").style.display = "inline";
      document.getElementById("hello").style.display = "none";
@@ -62,11 +63,13 @@ window.fbAsyncInit = function() {
      );
 } else {
      console.log("Not authenticated");
+     loginStatus = "notLoggedIn";
    }
  }
 
 function statusChangeCallback1(response) {
   if(response.status === "connected"){
+    loginStatus = "loggedIn";
     console.log("Authenticated");
     FB.api(
       '/359429951528331',
@@ -192,6 +195,7 @@ function statusChangeCallback1(response) {
     );
 } else {
     console.log("Not authenticated");
+    loginStatus = "notLoggedIn";
   }
 }
 
@@ -334,6 +338,28 @@ function getMonth(month){
      statusChangeCallback(response);
    });
  }
+
+function makeAboutMe() {
+  if(loginStatus === "loggedIn"){
+    document.getElementById("postfeed").style.display = "none";
+    document.getElementById("aboutMe").style.display = "inline";
+    document.getElementById("main_body").style.display = "none";
+  } else {
+    document.getElementById("aboutMe").style.display = "inline";
+    document.getElementById("main_body").style.display = "none";
+  }
+}
+
+function home() {
+  if (loginStatus === "loggedIn") {
+    document.getElementById("postfeed").style.display = "block";
+    document.getElementById("aboutMe").style.display = "none";
+    document.getElementById("main_body").style.display = "block";
+  } else {
+    document.getElementById("aboutMe").style.display = "none";
+    document.getElementById("main_body").style.display = "block";
+  }
+}
 
  function log_out() {
    FB.logout(function(response){

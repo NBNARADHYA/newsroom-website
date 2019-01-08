@@ -204,6 +204,9 @@
       background-color: #595959;
       color: white;
     }
+    #aboutMe {
+      display: none;
+    }
    </style>
  </head>
  <body>
@@ -220,12 +223,12 @@
      <p>Subscribe and get all required info posted on one page.</p>
    </div>
    <div class="nav_bar" id="nav_bar">
-     <a href="index.html"><i class="fa fa-home"></i> Home</a>
+     <a href="#" onclick="home();"><i class="fa fa-home"></i> Home</a>
      <a href="#" onclick="gotToIITISM();">IIT(ISM) Dhanbad</a>
      <a href="#" id="recent_posts">Recent Posts<span class="badge" id="badge"></span></a>
      <div id="google_translate_element" class="google_translate_element"></div>
      <a href="#" id="log-out" onclick="log_out()">Log Out</a>
-     <a href="about_me.html" class="align_right">About Me</a>
+     <a href="#" class="align_right" onclick="makeAboutMe();">About Me</a>
    </div>
    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
    <script type="text/javascript">
@@ -258,6 +261,25 @@
        document.documentElement.scrollTop = 0;
      }
    </script>
+   <div id="aboutMe">
+     <h2>About Me:</h2>
+     <p>
+       I am <b>Nikhil BN</b>. I am currently pursuing <b>Bachelor of Technology</b> in Electrical
+       Engineering from <b>Indian Institute of Technology(ISM) Dhanbad</b>. I am well
+       versed in programming languages like <b>C++</b>, <b>C</b> and <b>Python</b> and web development
+       languages like <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>. My academic fields of interests
+       are Computer Science, Math and Physics. I love playing Tennis too!
+       <br><br>
+       <b>GitHub: </b>
+       <a href="https://github.com/NBNARADHYA">https://github.com/NBNARADHYA</a>
+       <br><br>
+       <b>Email: </b>
+       nikhilbn.18je0539@ee.iitism.ac.in
+       <br><br>
+       <b>Contact Number: </b>
+       7254972818
+     </p>
+   </div>
    <div class="pageSelection" id="pageSelection">
      <br>
      <h2>Please select which all facebook page feed you need:</h2>
@@ -290,15 +312,16 @@
      </label>
      <br><br>
    </div>
-   <div class="main_body">
+   <div class="main_body" id="main_body">
      <h1 id="hello">Hello!</h1>
      <h2 id="login_text">Login with Facebook to get post feed:</h2>
-     <p text-align="center" id="postfeed">
+     <p text-align="center" id="postfeed"></p>
            <fb:login-button
              id="fb-login"
              scope="public_profile,email"
              onlogin="checkLoginState();">
-           </fb:login-button></p>
+           </fb:login-button>
+    </div>
    <div class="footer"><br>
      <label id="clockbox">
      <script type="text/javascript" src="time.js"></script><br>
