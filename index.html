@@ -225,7 +225,7 @@
    <div class="nav_bar" id="nav_bar">
      <a href="#" onclick="home();"><i class="fa fa-home"></i> Home</a>
      <a href="#" onclick="gotToIITISM();">IIT(ISM) Dhanbad</a>
-     <a href="#" id="recent_posts">Recent Posts<span class="badge" id="badge"></span></a>
+     <a href="#" id="recent_posts" onclick="recentPosts();">Recent Posts<span class="badge" id="badge"></span></a>
      <div id="google_translate_element" class="google_translate_element"></div>
      <a href="#" id="log-out" onclick="log_out()">Log Out</a>
      <a href="#" class="align_right" onclick="makeAboutMe();">About Me</a>
@@ -320,7 +320,7 @@
              id="fb-login"
              scope="public_profile,email"
              onlogin="checkLoginState();">
-           </fb:login-button>
+           </fb:login-button><br>
     </div>
    <div class="footer"><br>
      <label id="clockbox">

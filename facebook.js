@@ -343,7 +343,6 @@ function makeAboutMe() {
   if(loginStatus === "loggedIn"){
     document.getElementById("postfeed").style.display = "none";
     document.getElementById("aboutMe").style.display = "inline";
-    document.getElementById("main_body").style.display = "none";
   } else {
     document.getElementById("aboutMe").style.display = "inline";
     document.getElementById("main_body").style.display = "none";
@@ -354,11 +353,16 @@ function home() {
   if (loginStatus === "loggedIn") {
     document.getElementById("postfeed").style.display = "block";
     document.getElementById("aboutMe").style.display = "none";
-    document.getElementById("main_body").style.display = "block";
   } else {
     document.getElementById("aboutMe").style.display = "none";
     document.getElementById("main_body").style.display = "block";
   }
+}
+
+function recentPosts() {
+  document.getElementById("aboutMe").style.display = "none";
+  document.getElementById("postfeed").style.display = "block";
+  document.getElementById("badge").style.display = "none";
 }
 
  function log_out() {
