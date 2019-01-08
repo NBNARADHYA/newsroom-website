@@ -2,7 +2,7 @@ var posts1 = "";
 
 window.fbAsyncInit = function() {
   FB.init({
-    appId      : '2259725264303951',
+    appId      : '359151004888978',
     autoLogAppEvents : true,
     cookie     : true,
     xfbml      : true,
@@ -50,7 +50,7 @@ window.fbAsyncInit = function() {
        }
      );
      FB.api(
-       '/1553715788101621',
+       '/359429951528331',
        'GET',
        {"fields": "id,name,picture,feed{created_time,message,attachments}"},
        function(response){
@@ -69,7 +69,7 @@ function statusChangeCallback1(response) {
   if(response.status === "connected"){
     console.log("Authenticated");
     FB.api(
-      '/1553715788101621',
+      '/359429951528331',
       {"fields": "id,name,picture,feed{created_time,message,attachments}"},
       function(response){
         if(response && !response.error){
