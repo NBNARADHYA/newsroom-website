@@ -403,7 +403,7 @@ function checkCookie(name) {
         pageIdArray += getCookie("pageId" + i);
       }
     }
-    alert("Welcome " + name + "!" );
+    alert("Welcome again " + name + "!" );
     return pageIdArray;
   } else {
     document.getElementById("pageSelection").style.display = "block";
@@ -429,6 +429,7 @@ function checkCookie(name) {
       document.getElementById("pageSelection").style.display = "none";
       document.getElementById("postfeed").style.display = "block";
     });
+    alert("Welcome " + name + "!" );
     const len = getCookie("length");
     var pageIdArray = "";
     for (var i = 0; i < len; i++) {
