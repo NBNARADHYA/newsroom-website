@@ -395,7 +395,7 @@ function checkCookie(name) {
   var user = getCookie("username");
   if (user === name && user !== "") {
     const len = getCookie("length");
-    var pageIdArray = "";
+    var pageIdArray = "[";
     for (var i = 0; i < len; i++) {
       if(i !== len - 1){
         pageIdArray += getCookie("pageId" + i) + ",";
@@ -403,13 +403,14 @@ function checkCookie(name) {
         pageIdArray += getCookie("pageId" + i);
       }
     }
+    pageIdArray += "]";
     alert("Welcome again " + name + "!" );
     return pageIdArray;
   } else {
     document.getElementById("pageSelection").style.display = "block";
     document.getElementById("postfeed").style.display = "none";
     cookie += "username=" + name + ";";
-    document.getElementById("submitButton").addEventListener("click" , function(){
+    document.getElementById("submitButton").addEventListener("click" , function(name){
       var pages = document.getElementsByClassName("checkboxClass");
       var len = 0;
       for (var i = 0; i < pages.length; i++) {
@@ -428,9 +429,10 @@ function checkCookie(name) {
       setCookie(365);
       document.getElementById("pageSelection").style.display = "none";
       document.getElementById("postfeed").style.display = "block";
+      alert("Welcome " + name + "!" );
     });
     const len = getCookie("length");
-    var pageIdArray = "";
+    var pageIdArray = "[";
     for (var i = 0; i < len; i++) {
       if(i !== len - 1){
         pageIdArray += getCookie("pageId" + i) + ",";
@@ -438,6 +440,7 @@ function checkCookie(name) {
         pageIdArray += getCookie("pageId" + i);
       }
     }
+    pageIdArray += "]";
     return pageIdArray;
   }
 }
